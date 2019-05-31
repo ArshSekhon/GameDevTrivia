@@ -3,6 +3,8 @@
 #include "ConfigManager.h"
 
 #include <allegro.h>
+#define BLACK makeacol32(0,0,0,12)
+#define BG_COLOR makecol(18,39,34)
 
 ConfigManager configManager;
 
@@ -17,8 +19,15 @@ END_OF_FUNCTION(close_button_handler)
 
 
 GameManager::GameManager() {
-
+	gameState = GAME_STATE_LOAD_SCREEN;
 }
+int filter(int c, int w, int h, int color_depth) {
+	if (c == GFX_SAFE || c == GFX_AUTODETECT_FULLSCREEN || c == GFX_AUTODETECT_WINDOWED)
+			return 0;
+	return -1;
+}
+
+
 
 int GameManager::init() {
 	// initialize allegro
@@ -27,7 +36,7 @@ int GameManager::init() {
 		return ERROR_ALLEGRO_INIT;
 	}
 	
-	set_window_title("Game Dev: Pocket Trivia"); 
+	set_window_title("Game Development Trivia"); 
 
 	// set handler to make the close button work
 	LOCK_FUNCTION(close_button_handler);
@@ -38,7 +47,7 @@ int GameManager::init() {
 	// Make sure game continues to run when not in focus
 	// REFERENCE: https://www.allegro.cc/manual/4/api/graphics-modes/set_display_switch_mode
 	set_display_switch_mode(SWITCH_BACKGROUND);
-
+	set_color_depth(32);
 	// set GFX mode
 	int gfx_mode = GFX_SAFE;
 	if (fullscreen == 1) {
@@ -64,28 +73,102 @@ int GameManager::init() {
 		return ERROR_ALLEGRO_KEYBOARD_INIT;
 	}
 
+	show_mouse(screen);
+
+	//load the custom mouse pointer
+	// BITMAP* cursor = load_bitmap("spaceship.bmp", NULL);
+	// set_mouse_sprite(cursor);
+
+	// set_mouse_sprite_focus(cursor->w / 2, cursor->h / 2); 
+
 	//install keyboard
 	if (install_keyboard() != 0) { 
 		allegro_message("ERROR: Failed to install Keyboard.");
 		return ERROR_ALLEGRO_KEYBOARD_INIT;
 	}
-	  
-	textout_ex(screen, font, "Hello World!", 1, 1, 10, -1);
-	textout_ex(screen, font, "Press ESCape to quit.", 1, 12, 11, -1); 
-	rectfill(screen, 10, 10, 1000, 800, 11);
+	
+	gameState = GAME_STATE_LOAD_SCREEN;
+
 }
 
 void GameManager::runGameLoop() {
-	BITMAP* buffer = create_bitmap(resolution_x, resolution_y);
+	BITMAP* buffer = create_bitmap(resolution_x, resolution_y);  
 
 	while (!key[KEY_ESC] && !close_button_flag) {
 
-		rectfill(screen, 10, 10, 1000, 800, 0);
-		textprintf(screen, font, 200, 200, 11, "X:%d Y:%d", mouse_x, mouse_y);
-		rest(60);
+	   renderFrameToScreen(buffer); 
 	}; 
 }
 
 void GameManager::exit() {
 	allegro_exit();
+}
+
+void GameManager::bufferToScreen(BITMAP* buffer) {
+	blit(buffer, screen, 0, 0, 0, 0, resolution_x, resolution_y);
+	clear_bitmap(buffer);
+}
+void GameManager::renderFrameToScreen(BITMAP* buffer) {
+	switch (gameState) {
+
+	case GAME_STATE_LOAD_SCREEN:
+		showLoadingScreen(buffer);
+		break;
+	case GAME_STATE_MAIN_MENU:
+		showMainMenu(buffer);
+		break;
+	case GAME_STATE_OPTIONS_SCREEN:
+		break;
+	case GAME_STATE_GFX_OPTIONS:
+		break;
+	case GAME_STATE_SOUND_OPTIONS:
+		break;
+	case GAME_STATE_GAME_MODE_SELECTION:
+		break; 
+	case GAME_STATE_QUIZ_START_SCREEN:
+		break;
+	case GAME_STATE_QUESTION_SCREEN:
+		break;
+	case GAME_STATE_RESULTS_SCREEN:
+		break;
+	}
+
+	//mouse coordinates
+	textprintf(buffer, font, 10, 10, -1, "X:%d Y:%d", mouse_x, mouse_y);
+}
+
+ 
+void GameManager::showLoadingScreen(BITMAP* buffer) { 
+	BITMAP* banner = load_bitmap("assets/ui-elem/LoadScreenBanner.bmp", NULL);
+
+	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, BG_COLOR);  
+	if (SCREEN_W <= 640 || SCREEN_H <= 480) {
+		masked_stretch_blit(banner, buffer, 0, 0, banner->w, banner->h, SCREEN_W * 0.2, SCREEN_H * 0.2, SCREEN_W * 0.6, SCREEN_H * 0.6);
+	}
+	else {
+		masked_stretch_blit(banner, buffer, 0, 0, banner->w, banner->h, (SCREEN_W-banner->w)/2 , (SCREEN_H-banner->h) / 2, banner->w, banner->h);
+	}
+
+	//draw buffer to screen and clear buffer
+	bufferToScreen(buffer);
+	rest(1000);
+
+	gameState = GAME_STATE_MAIN_MENU;
+}
+
+void GameManager::showMainMenu(BITMAP* buffer) {
+	BITMAP* gameTitle = load_bitmap("assets/main-menu/GameTitleBanner.bmp", NULL);
+
+	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, BG_COLOR); 
+	//draw buffer to screen and clear buffer
+
+	if (SCREEN_W <= 640 || SCREEN_H <= 480) {
+		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, SCREEN_W * 0.2, SCREEN_H * 0.2, SCREEN_W * 0.6, SCREEN_H * 0.6);
+	}
+	else {
+		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, (SCREEN_W - gameTitle->w) / 2, 100, gameTitle->w, gameTitle->h);
+	}
+
+	bufferToScreen(buffer); 
+	gameState = GAME_STATE_MAIN_MENU;
 }

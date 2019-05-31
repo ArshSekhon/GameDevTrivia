@@ -9,4 +9,4 @@ extern int fullscreen;
 
 // sound settings
 extern int sound_volume;
-extern int music_volume;
+extern int music_volume; 

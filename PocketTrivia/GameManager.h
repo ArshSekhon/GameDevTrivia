@@ -11,6 +11,12 @@
 //extern int init(void);
 
 class GameManager {
+private:
+	int gameState;
+	void bufferToScreen(BITMAP* buffer);
+	void showLoadingScreen(BITMAP* buffer);
+	void showMainMenu(BITMAP* buffer);
+	void renderFrameToScreen(BITMAP* buffer);
 
 public:
 	GameManager();
