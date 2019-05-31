@@ -167,7 +167,27 @@
     <Manifest />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="ConfigManager.cpp" />
+    <ClCompile Include="Globals.cpp" />
     <ClCompile Include="PocketTrivia.cpp" />
+    <ClCompile Include="Question.cpp" />
+    <ClCompile Include="Quiz.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Ch1-Answers.txt" />
+    <Text Include="Ch1-Questions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="Question.h" />
+    <ClInclude Include="Quiz.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PocketTrivia.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
