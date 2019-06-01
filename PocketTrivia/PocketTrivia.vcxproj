@@ -182,6 +182,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="ConfigManager.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PocketTrivia.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Quiz.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
   </ItemGroup>
@@ -205,11 +207,10 @@
     <Image Include="assets\ui-elem\Banner_Sq.bmp" />
     <Image Include="assets\main-menu\GameTitleBanner.bmp" />
     <Image Include="assets\main-menu\MainMenuButtons.bmp" />
+    <Image Include="assets\ui-elem\cursor-hand.bmp" />
     <Image Include="assets\ui-elem\LoadScreenBanner.bmp" />
     <Image Include="main.bmp" />
     <Image Include="MainMenu.bmp" />
-    <Image Include="spaceship.bmp" />
-    <Image Include="w.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

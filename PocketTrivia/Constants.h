@@ -29,3 +29,25 @@
 #define ERROR_ALLEGRO_SOUND_INIT 104
 #define ERROR_ALLEGRO_KEYBOARD_INIT 105
 #define ERROR_ALLEGRO_GFX_CHANGE 106
+
+
+// colors
+
+#define COLOR_BG makecol(18,39,34)
+
+
+
+
+struct GameState {
+
+	int resolution_x;
+	int resolution_y;
+	// full screen 
+	int fullscreen;
+
+	// sound settings
+	int sound_volume;
+	int music_volume;
+
+	int gameState;
+};

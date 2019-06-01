@@ -1,10 +1,9 @@
 #include "GameManager.h"
 #include "Constants.h"
 #include "ConfigManager.h"
+#include "MainMenu.h"
 
-#include <allegro.h>
-#define BLACK makeacol32(0,0,0,12)
-#define BG_COLOR makecol(18,39,34)
+#include <allegro.h> 
 
 ConfigManager configManager;
 
@@ -17,9 +16,11 @@ void close_button_handler(void)
 END_OF_FUNCTION(close_button_handler)
 
 
+GameManager::GameManager() { 
 
-GameManager::GameManager() {
 	gameState = GAME_STATE_LOAD_SCREEN;
+	loadScreen = NULL;
+	mainMenu = NULL;
 }
 int filter(int c, int w, int h, int color_depth) {
 	if (c == GFX_SAFE || c == GFX_AUTODETECT_FULLSCREEN || c == GFX_AUTODETECT_WINDOWED)
@@ -73,11 +74,11 @@ int GameManager::init() {
 		return ERROR_ALLEGRO_KEYBOARD_INIT;
 	}
 
-	show_mouse(screen);
 
 	//load the custom mouse pointer
-	// BITMAP* cursor = load_bitmap("spaceship.bmp", NULL);
-	// set_mouse_sprite(cursor);
+	BITMAP* cursor = load_bitmap("assets/ui-elem/cursor-hand.bmp", NULL);
+	set_mouse_sprite(cursor);
+	show_mouse(screen);
 
 	// set_mouse_sprite_focus(cursor->w / 2, cursor->h / 2); 
 
@@ -85,10 +86,14 @@ int GameManager::init() {
 	if (install_keyboard() != 0) { 
 		allegro_message("ERROR: Failed to install Keyboard.");
 		return ERROR_ALLEGRO_KEYBOARD_INIT;
-	}
-	
-	gameState = GAME_STATE_LOAD_SCREEN;
+	} 
 
+
+
+	mainMenu = new MainMenu();
+
+
+	return 0;
 }
 
 void GameManager::runGameLoop() {
@@ -96,17 +101,16 @@ void GameManager::runGameLoop() {
 
 	while (!key[KEY_ESC] && !close_button_flag) {
 
-	   renderFrameToScreen(buffer); 
+	   renderFrameToScreen(buffer);
+	   rest(30);
 	}; 
 }
 
 void GameManager::exit() {
 	allegro_exit();
 }
-
+ 
 void GameManager::bufferToScreen(BITMAP* buffer) {
-	blit(buffer, screen, 0, 0, 0, 0, resolution_x, resolution_y);
-	clear_bitmap(buffer);
 }
 void GameManager::renderFrameToScreen(BITMAP* buffer) {
 	switch (gameState) {
@@ -114,8 +118,8 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 	case GAME_STATE_LOAD_SCREEN:
 		showLoadingScreen(buffer);
 		break;
-	case GAME_STATE_MAIN_MENU:
-		showMainMenu(buffer);
+	case GAME_STATE_MAIN_MENU: 
+		gameState = mainMenu->showMainMenu(buffer);
 		break;
 	case GAME_STATE_OPTIONS_SCREEN:
 		break;
@@ -139,36 +143,22 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 
  
 void GameManager::showLoadingScreen(BITMAP* buffer) { 
-	BITMAP* banner = load_bitmap("assets/ui-elem/LoadScreenBanner.bmp", NULL);
+	if(this->loadScreen == NULL)
+		loadScreen = load_bitmap("assets/ui-elem/LoadScreenBanner.bmp", NULL);
 
-	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, BG_COLOR);  
+	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, COLOR_BG);
 	if (SCREEN_W <= 640 || SCREEN_H <= 480) {
-		masked_stretch_blit(banner, buffer, 0, 0, banner->w, banner->h, SCREEN_W * 0.2, SCREEN_H * 0.2, SCREEN_W * 0.6, SCREEN_H * 0.6);
+		masked_stretch_blit(loadScreen, buffer, 0, 0, loadScreen->w, loadScreen->h, SCREEN_W * 0.2, SCREEN_H * 0.2, SCREEN_W * 0.6, SCREEN_H * 0.6);
 	}
 	else {
-		masked_stretch_blit(banner, buffer, 0, 0, banner->w, banner->h, (SCREEN_W-banner->w)/2 , (SCREEN_H-banner->h) / 2, banner->w, banner->h);
+		masked_stretch_blit(loadScreen, buffer, 0, 0, loadScreen->w, loadScreen->h, (SCREEN_W- loadScreen->w)/2 , (SCREEN_H- loadScreen->h) / 2, loadScreen->w, loadScreen->h);
 	}
 
 	//draw buffer to screen and clear buffer
-	bufferToScreen(buffer);
+	blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+	clear_bitmap(buffer);
 	rest(1000);
 
 	gameState = GAME_STATE_MAIN_MENU;
 }
 
-void GameManager::showMainMenu(BITMAP* buffer) {
-	BITMAP* gameTitle = load_bitmap("assets/main-menu/GameTitleBanner.bmp", NULL);
-
-	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, BG_COLOR); 
-	//draw buffer to screen and clear buffer
-
-	if (SCREEN_W <= 640 || SCREEN_H <= 480) {
-		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, SCREEN_W * 0.2, SCREEN_H * 0.2, SCREEN_W * 0.6, SCREEN_H * 0.6);
-	}
-	else {
-		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, (SCREEN_W - gameTitle->w) / 2, 100, gameTitle->w, gameTitle->h);
-	}
-
-	bufferToScreen(buffer); 
-	gameState = GAME_STATE_MAIN_MENU;
-}

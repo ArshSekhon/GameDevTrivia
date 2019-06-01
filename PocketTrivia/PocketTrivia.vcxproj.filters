@@ -24,13 +24,16 @@
     <ClCompile Include="ConfigManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Globals.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Quiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Question.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,9 +44,6 @@
     <ClInclude Include="ConfigManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Quiz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,12 +74,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="spaceship.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="w.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="main.bmp">
       <Filter>Resource Files</Filter>
     </Image>
@@ -90,6 +90,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\ui-elem\LoadScreenBanner.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\cursor-hand.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
