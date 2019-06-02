@@ -179,13 +179,20 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameIntroScreen.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="ConfigManager.cpp" />
-    <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="GameModeSelectionMenu.cpp" />
+    <ClCompile Include="GameQuizScreen.cpp" />
+    <ClCompile Include="menus\CreditsMenu.cpp" />
+    <ClCompile Include="menus\GFXSettingsMenu.cpp" />
+    <ClCompile Include="menus\MainMenu.cpp" />
     <ClCompile Include="PocketTrivia.cpp" />
-    <ClCompile Include="Question.cpp" />
-    <ClCompile Include="Quiz.cpp" />
+    <ClCompile Include="entities\Question.cpp" />
+    <ClCompile Include="entities\Quiz.cpp" />
+    <ClCompile Include="menus\SettingsMenu.cpp" />
+    <ClCompile Include="menus\SoundSettingsMenu.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Ch1-Answers.txt" />
@@ -193,14 +200,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="Globals.h" />
+    <ClInclude Include="GameIntroScreen.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ConfigManager.h" />
-    <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="Question.h" />
-    <ClInclude Include="Quiz.h" />
+    <ClInclude Include="GameModeSelectionMenu.h" />
+    <ClInclude Include="GameQuizScreen.h" />
+    <ClInclude Include="menus\CreditsMenu.h" />
+    <ClInclude Include="menus\GFXSettingsMenu.h" />
+    <ClInclude Include="menus\MainMenu.h" />
+    <ClInclude Include="entities\Question.h" />
+    <ClInclude Include="entities\Quiz.h" />
+    <ClInclude Include="menus\SettingsMenu.h" />
+    <ClInclude Include="menus\SoundSettingsMenu.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\bigfont.dat" />
     <None Include="PocketTrivia.cfg" />
   </ItemGroup>
   <ItemGroup>
@@ -209,8 +224,7 @@
     <Image Include="assets\main-menu\MainMenuButtons.bmp" />
     <Image Include="assets\ui-elem\cursor-hand.bmp" />
     <Image Include="assets\ui-elem\LoadScreenBanner.bmp" />
-    <Image Include="main.bmp" />
-    <Image Include="MainMenu.bmp" />
+    <Image Include="assets\ui-elem\pointer.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

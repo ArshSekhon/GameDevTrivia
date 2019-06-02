@@ -1,7 +1,17 @@
 #pragma once
 
 #include <allegro.h>
-#include "MainMenu.h"
+#include "menus/MainMenu.h"
+#include "GameIntroScreen.h"
+
+
+#include "menus/SettingsMenu.h"
+#include "menus/GFXSettingsMenu.h"
+#include "menus/SoundSettingsMenu.h"
+#include "menus/CreditsMenu.h"
+
+
+#include "Constants.h"
 #define CONFIG_FILE "PocketTrivia.cfg"
 
 /*
@@ -13,15 +23,23 @@
 
 class GameManager {
 private:
-	int gameState;
+	GameState* gameState;
 	void bufferToScreen(BITMAP* buffer);
 	void showLoadingScreen(BITMAP* buffer);
 	void renderFrameToScreen(BITMAP* buffer);
 	MainMenu* mainMenu;
-	BITMAP* loadScreen; 
+	GFXSettingsMenu* gfxSettingsMenu;
+	SoundSettingsMenu* soundSettingsMenu;
+	SettingsMenu* settingsMenu;
+	GameIntroScreen* gameIntroScreen;
+	CreditsMenu* creditsMenu;
 
+	BITMAP* loadScreen; 
+	BITMAP* cursor;
+	BITMAP* cursorHand;
+	int pointerAsCursor; 
 public:
-	GameManager();
+	GameManager(GameState* gamseState);
 	int init(void);
 	void exit(void); 
 	void runGameLoop(void);

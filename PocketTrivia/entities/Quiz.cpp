@@ -1,6 +1,6 @@
 #include "Question.h"
 #include "Quiz.h" 
-#include "Constants.h"
+#include "../Constants.h"
 
 #include <string>
 #include <fstream>

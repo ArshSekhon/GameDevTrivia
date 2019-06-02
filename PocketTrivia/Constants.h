@@ -3,20 +3,25 @@
 
 // GFX RESOLUTIONS
 
-#define GFX_RES_1280_X_960 1
-#define GFX_RES_960_X_720 2
-#define GFX_RES_640_X_420 1
+#define GFX_RES_640_X_480 0
+#define GFX_RES_960_X_720 1
+#define GFX_RES_1280_X_960 2
+
+// GFX screen mode
+#define GFX_MODE_WINDOWED 0
+#define GFX_MODE_FULLSCREEN 1
 
 // Game states
-#define GAME_STATE_LOAD_SCREEN 1
-#define GAME_STATE_MAIN_MENU 2
-#define GAME_STATE_OPTIONS_SCREEN 3
-#define GAME_STATE_GFX_OPTIONS 4
-#define GAME_STATE_SOUND_OPTIONS 5
-#define GAME_STATE_GAME_MODE_SELECTION 6
-#define GAME_STATE_QUIZ_START_SCREEN 7
-#define GAME_STATE_QUESTION_SCREEN 8
-#define GAME_STATE_RESULTS_SCREEN 9
+#define GAME_SCREEN_LOADING 1
+#define GAME_SCREEN_MAIN_MENU 2
+#define GAME_SCREEN_SETTINGS 3
+#define GAME_SCREEN_GFX_SETTINGS 4
+#define GAME_SCREEN_SOUND_SETTINGS 5
+#define GAME_SCREEN_GAME_MODE_SELECTION 6
+#define GAME_SCREEN_QUIZ_START 7
+#define GAME_SCREEN_QUESTION 8
+#define GAME_SCREEN_RESULTS 9
+#define GAME_SCREEN_CREDITS 10
 
 
 
@@ -34,6 +39,7 @@
 // colors
 
 #define COLOR_BG makecol(18,39,34)
+#define COLOR_TEXT makecol(18,39,34)
 
 
 
@@ -49,5 +55,18 @@ struct GameState {
 	int sound_volume;
 	int music_volume;
 
-	int gameState;
+	int gameScreen;
+
+	int mouseHover;
+	int exitGame;
+
+	int gfxSettingsUpdated;
+	int soundSettingsUpdated;
+};
+
+struct BoundingBox {
+	int x;
+	int y;
+	int w;
+	int h;
 };

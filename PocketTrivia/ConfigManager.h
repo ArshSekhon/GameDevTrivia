@@ -1,5 +1,5 @@
-#pragma once
-#include "Globals.h"
+#pragma once 
+#include "Constants.h"
 
 
 // FUNCTION DECLARATIONS
@@ -11,7 +11,7 @@ public:
 		  char *configFile - Config file name
 	   Returns: void 
 	*/
-	void load_config(const char* configFile);
+	void load_config(const char* configFile, GameState* gs);
 
 
 	/*
@@ -20,5 +20,5 @@ public:
 		  char *configFile - Config file name
 	   Returns: void 
 	*/
-	void save_config(const char* configFile);
+	void save_config(const char* configFile, GameState* gs);
 };
