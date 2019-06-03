@@ -1,4 +1,4 @@
-10
+4
 What programming language is used in this book?
 C 
 Pascal 
