@@ -83,7 +83,12 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 		gameState->mouseHover = 1;
 
 		if (mouse_b & 1){
-			gameState->gameScreen = GAME_SCREEN_QUIZ_START;
+			gameState->gameScreen = GAME_SCREEN_QUESTION;
+			//reset the score and current question number
+			gameState->currentQuestion = 0;
+			gameState->currentScore = 0;
+			//TODO: create quiz
+
 			gameState->mouseHover = 0;
 			rest(300);
 		}

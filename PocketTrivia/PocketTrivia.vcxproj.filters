@@ -63,11 +63,11 @@
     <ClCompile Include="GameModeSelectionMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameQuizScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="menus\CreditsMenu.cpp">
       <Filter>Source Files\menus</Filter>
+    </ClCompile>
+    <ClCompile Include="GameQuestionScreen.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,11 +107,11 @@
     <ClInclude Include="GameModeSelectionMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameQuizScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="menus\CreditsMenu.h">
       <Filter>Header Files\menus</Filter>
+    </ClInclude>
+    <ClInclude Include="GameQuestionScreen.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +139,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\ui-elem\pointer.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\option-banner.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\question-banner.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

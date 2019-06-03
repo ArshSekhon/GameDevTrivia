@@ -1,21 +1,20 @@
 #include "Question.h"
-#include <string>
 
-Question::Question(std::string questionText, std::string* questionOptions, int correctAnswerIndex) {
+Question::Question(char* questionText, char** questionOptions, int correctAnswerIndex) {
 	this->questionText = questionText;
 	this->questionOptions = questionOptions;
 	this->correctAnswerIndex = correctAnswerIndex;
 }
-std::string Question::getQuestionText() {
+char* Question::getQuestionText() {
 	return this->questionText;
 }
-void  Question::setQuestionText(std::string text) {
+void  Question::setQuestionText(char* text) {
 	this->questionText = text;
 }
-std::string* Question::getQuestionOptions() {
+char** Question::getQuestionOptions() {
 	return this->questionOptions;
 }
-void  Question::setQuestionText(std::string* options) {
+void  Question::setQuestionText(char** options) {
 	this->questionOptions = options;
 } 
 void Question::setQuestionAnswer(int correctAnswerIndex) {
@@ -27,6 +26,6 @@ bool Question::checkQuestionAnswer(int answerIndex) {
 int Question::getQuestionAnswerIndex() {
 	return this->correctAnswerIndex;
 }
-std::string Question::getQuestionAnswer() {
+char* Question::getQuestionAnswer() {
 	return this->questionOptions[this->correctAnswerIndex];
 }

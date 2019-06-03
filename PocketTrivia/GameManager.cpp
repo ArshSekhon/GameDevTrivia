@@ -3,6 +3,8 @@
 #include "ConfigManager.h"
 #include "menus/MainMenu.h"
 
+#include "entities/Quiz.h"
+
 #include <allegro.h> 
 
 ConfigManager configManager;
@@ -17,7 +19,10 @@ END_OF_FUNCTION(close_button_handler)
 
 
 GameManager::GameManager(GameState* gs) { 
-
+	const char** questionFiles = new const char*[2]{ "Ch1-Questions.txt","Ch1-Questions.txt" };
+	const char** answerFiles = new const char* [2]{ "Ch1-Answers.txt","Ch1-Answers.txt" };
+	char a = questionFiles[0][2];
+	Quiz quiz(questionFiles, answerFiles,2);
 	gameState = gs;
 	gs->gameScreen = GAME_SCREEN_LOADING;
 	gs->gfxSettingsUpdated = 1;
@@ -97,12 +102,14 @@ int GameManager::init() {
 
 
 	mainMenu = new MainMenu(gameState);
-
 	settingsMenu = new SettingsMenu(gameState);
 	gfxSettingsMenu = new GFXSettingsMenu(gameState, &configManager);
 	soundSettingsMenu = new SoundSettingsMenu(gameState, &configManager);
-	gameIntroScreen = new GameIntroScreen(gameState);
 	creditsMenu = new CreditsMenu(gameState);
+	gameModeSelectionMenu = new GameModeSelectionMenu(gameState);
+
+	gameIntroScreen = new GameIntroScreen(gameState, &configManager);
+	gameQuestionScreen = new GameQuestionScreen(gameState);
 
 
 
@@ -161,11 +168,18 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 		soundSettingsMenu->showSoundSettingsMenu(buffer);
 		break;
 	case GAME_SCREEN_GAME_MODE_SELECTION:
+		gameModeSelectionMenu->showGameModeMenu(buffer);
 		break; 
 	case GAME_SCREEN_QUIZ_START:
 		gameIntroScreen->showIntroScreen(buffer);
 		break;
 	case GAME_SCREEN_QUESTION:
+		gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?", new char*[4]{
+			(char*)"C",
+			(char*)"Pascal",
+			(char*)"C++",
+			(char*)"Assembly"
+			}, 3));
 		break;
 	case GAME_SCREEN_RESULTS:
 		break;

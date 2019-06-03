@@ -2,8 +2,9 @@
 
 DIALOG gameIntroDialog = { d_textbox_proc, 0, 0,  0,  0,  0,  0, 0, 0, 0,   0, NULL, NULL, NULL };
 
-GameIntroScreen::GameIntroScreen(GameState* gameState) {
+GameIntroScreen::GameIntroScreen(GameState* gameState, ConfigManager* configManager) {
 	this->gameState = gameState;
+	this->configManager = configManager;
 	this->bannerBitmap = load_bitmap("assets/ui-elem/Banner_Sq.bmp", NULL);
 
 	this->bigFont = (FONT*)load_datafile("assets/bigfont.dat")[0].dat;
@@ -16,7 +17,6 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 	// clear BG
 	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, COLOR_BG);
 
-	
 
 
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
@@ -24,24 +24,50 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "WELCOME!", COLOR_TEXT, -1);
 		Utility::draw_wrapping_text(buffer, font, &gameIntroDialog, this->introText, SCREEN_W*0.2, SCREEN_H * 0.32, SCREEN_W*0.6, SCREEN_H*0.4, 10);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.78, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.35, SCREEN_H * 0.78, 1.5, "OK", COLOR_TEXT, -1);
+		skipIntroButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.78, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
+		okButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.35, SCREEN_H * 0.78, 1.5, "OK", COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.27, 3, "WELCOME!", COLOR_TEXT, -1);
 		Utility::draw_wrapping_text(buffer, font, &gameIntroDialog, this->introText, SCREEN_W * 0.22, SCREEN_H * 0.32, SCREEN_W * 0.56, SCREEN_H * 0.37, 10);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.74, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.44, SCREEN_H * 0.74, 1.5, "OK", COLOR_TEXT, -1);
+		skipIntroButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.74, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
+		okButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.44, SCREEN_H * 0.74, 1.5, "OK", COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.33, 3, "WELCOME!", COLOR_TEXT, -1);
 		Utility::draw_wrapping_text(buffer, font, &gameIntroDialog, this->introText, SCREEN_W * 0.3, SCREEN_H * 0.37, SCREEN_W * 0.4, SCREEN_H * 0.27, 10);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.5, SCREEN_H * 0.68, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.6, SCREEN_H * 0.68, 1.5, "OK", COLOR_TEXT, -1);
+		skipIntroButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.5, SCREEN_H * 0.68, 1.5, "DON'T SHOW AGAIN", COLOR_TEXT, -1);
+		okButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.6, SCREEN_H * 0.68, 1.5, "OK", COLOR_TEXT, -1);
+	}
+
+
+	if (Utility::inTheBoundingBox(skipIntroButton)) {
+		gameState->mouseHover = 1;
+		if (mouse_b & 1) {
+			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
+			gameState->skip_intro = 1;
+			configManager->save_config(CONFIG_FILENAME, gameState);
+
+			gameState->mouseHover = 0;
+			rest(300);
+			return;
+		}
+	}
+	else if (Utility::inTheBoundingBox(okButton)) {
+		gameState->mouseHover = 1;
+		if (mouse_b & 1) {
+			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
+			gameState->mouseHover = 0;
+			rest(300);
+			return;
+		}
+	}
+	else {
+		gameState->mouseHover = 0;
 	}
 
 

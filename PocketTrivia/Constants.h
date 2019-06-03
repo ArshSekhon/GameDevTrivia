@@ -1,6 +1,9 @@
 #pragma once
 #define CONFIG_FILENAME "PocketTrivia.cfg"
 
+
+#define NUMBER_OF_QUESTIONS_PER_GAME 10
+
 // GFX RESOLUTIONS
 
 #define GFX_RES_640_X_480 0
@@ -40,6 +43,7 @@
 
 #define COLOR_BG makecol(18,39,34)
 #define COLOR_TEXT makecol(18,39,34)
+#define COLOR_HUD_TEXT makecol(96,57,28)
 
 
 
@@ -62,6 +66,13 @@ struct GameState {
 
 	int gfxSettingsUpdated;
 	int soundSettingsUpdated;
+
+	int skip_intro;
+
+	char* chapter_selection;
+
+	int currentQuestion;
+	int currentScore;
 };
 
 struct BoundingBox {

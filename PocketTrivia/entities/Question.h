@@ -1,21 +1,20 @@
 #pragma once
-#include <string>
 
 class Question
 { 
 private:
-		std::string questionText;
-		std::string* questionOptions;
+		char* questionText;
+		char** questionOptions;
 		int correctAnswerIndex; 
 public:
-	Question(std::string questionText, std::string* questionOptions, int correctAnswerIndex);
-	std::string getQuestionText(void);
-	void setQuestionText(std::string);
-	std::string* getQuestionOptions(void);
-	void setQuestionText(std::string*);
+	Question(char* questionText, char** questionOptions, int correctAnswerIndex);
+	char* getQuestionText(void);
+	void setQuestionText(char*);
+	char** getQuestionOptions(void);
+	void setQuestionText(char**);
 	void setQuestionAnswer(int correctAnswerIndex);
 	bool checkQuestionAnswer(int answerIndex);
 	int getQuestionAnswerIndex();
-	std::string getQuestionAnswer();
+	char* getQuestionAnswer();
 };
 

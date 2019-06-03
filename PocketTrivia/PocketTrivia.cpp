@@ -1,4 +1,4 @@
-
+/**/
 #include "ConfigManager.h"
 #include "entities/Quiz.h"   
 #include "GameManager.h"
@@ -33,7 +33,6 @@ int main(void) {
 	return 0;
 	
 
-	/*
 	char the_text[] =
 		"I'm text inside a text box.\n\n"
 		"I can have multiple lines.\n\n"
@@ -91,11 +90,11 @@ int main(void) {
 
 	allegro_exit();
 	return 0;
-	*/
+
 
 }
 END_OF_MAIN()
-
+/**/
 
 /*
 #include <stdio.h>
@@ -106,16 +105,62 @@ END_OF_MAIN()
 
 #define LEN 32
 
-DIALOG d =
-{
-	d_textbox_proc,    100, 100,  400,   50,   0,  0,    0,      0,       0,   0,    (char*)(void*)"I'm text inside a text box.\n\n"
-"I can have multiple lines.\n\n"
-"If I grow too big to fit into my box, I get a scrollbar to "
-"the right, so you can scroll me in the vertical direction. I will never "
-"let you scroll in the horizontal direction, but instead I will try to "
-"word wrap the text.",       NULL, NULL
-};
+char sel[11];
 
+
+char* listbox_getter(int index, int* list_size)
+{
+	static char* strings[] =
+	{
+	  (char*) "Zero",  (char*)"One",  (char*) "Two",   (char*)"Three", (char*)"Four",  (char*)"Five",
+	  (char*) "Six",   (char*)"Seven", (char*)"Eight",(char*) "Nine",  (char*)"Ten"
+	};
+
+	if (index < 0) {
+		*list_size = 11;
+		return NULL;
+	}
+	else {
+		return strings[index];
+	}
+}
+
+
+DIALOG d =
+
+{ d_list_proc,       160, 150,  160,   44,   0,  0,    0,      0,       0,   0,    (void*)listbox_getter, sel,  NULL };
+
+
+
+int info1(BITMAP* buffer)
+{
+	char buf1[256];
+	char buf2[256] = "";
+	int i, s = 0, n;
+
+	listbox_getter(-1, &n);
+
+	for (i = 0; i < n; i++) {
+		if (sel[i]) {
+			uszprintf(buf1, sizeof buf1, "%i ", i);
+			ustrzcat(buf2, sizeof buf2, buf1);
+			s = 1;
+		}
+	}
+	if (s)
+		ustrzcat(buf2, sizeof buf2, "are in the multiple selection!");
+	else
+		ustrzcat(buf2, sizeof buf2, "There is no multiple selection!");
+	uszprintf(buf1, sizeof buf1, "Item number %i is selected!",
+		d.d1);
+	
+	//alert("Info about the list:", buf1, buf2, "Ok", NULL, 0, 0);
+
+	textout_ex(buffer, font, buf1, 10, 10, makecol(255, 255, 255),-1);
+	textout_ex(buffer, font, buf2, 10, 20, makecol(255, 255, 255),-1);
+
+	return D_O_K;
+}
 
 
 int main(int argc, char* argv[])
@@ -162,6 +207,7 @@ int main(int argc, char* argv[])
 			shutdown_dialog(player);
 		}
 		gui_set_screen(bmpScreen);
+		info1(buffer);
 		blit(buffer, screen, 0, 0, 0, 0, 640, 480);
 		clear_bitmap(buffer); 
 	}

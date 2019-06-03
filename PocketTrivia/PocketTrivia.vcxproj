@@ -183,7 +183,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="ConfigManager.cpp" />
     <ClCompile Include="GameModeSelectionMenu.cpp" />
-    <ClCompile Include="GameQuizScreen.cpp" />
+    <ClCompile Include="GameQuestionScreen.cpp" />
     <ClCompile Include="menus\CreditsMenu.cpp" />
     <ClCompile Include="menus\GFXSettingsMenu.cpp" />
     <ClCompile Include="menus\MainMenu.cpp" />
@@ -204,7 +204,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ConfigManager.h" />
     <ClInclude Include="GameModeSelectionMenu.h" />
-    <ClInclude Include="GameQuizScreen.h" />
+    <ClInclude Include="GameQuestionScreen.h" />
     <ClInclude Include="menus\CreditsMenu.h" />
     <ClInclude Include="menus\GFXSettingsMenu.h" />
     <ClInclude Include="menus\MainMenu.h" />
@@ -224,7 +224,9 @@
     <Image Include="assets\main-menu\MainMenuButtons.bmp" />
     <Image Include="assets\ui-elem\cursor-hand.bmp" />
     <Image Include="assets\ui-elem\LoadScreenBanner.bmp" />
+    <Image Include="assets\ui-elem\option-banner.bmp" />
     <Image Include="assets\ui-elem\pointer.bmp" />
+    <Image Include="assets\ui-elem\question-banner.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

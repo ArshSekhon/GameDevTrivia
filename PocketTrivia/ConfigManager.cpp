@@ -19,6 +19,8 @@ void ConfigManager::load_config(const char* configFile, GameState* gs) {
 	gs->sound_volume = get_config_int("SOUND", "sound_volume", gs->sound_volume);
 	gs->music_volume = get_config_int("SOUND", "music_volume", gs->music_volume);
 
+	gs->skip_intro = get_config_int("INTRO", "skip_intro", gs->skip_intro);
+
    pop_config_state();
 
 }
@@ -39,6 +41,9 @@ void ConfigManager::save_config(const char* configFile, GameState* gs) {
 	//save settings for sound
 	set_config_int("SOUND", "sound_volume", gs->sound_volume);
 	set_config_int("SOUND", "music_volume", gs->music_volume);
+
+
+	set_config_int("INTRO", "skip_intro", gs->skip_intro);
 	pop_config_state();
 
 }

@@ -29,6 +29,7 @@ namespace Utility {
 		return box;
 		
 	}
+
 	BoundingBox textout_centre_magnified(BITMAP* bmp, FONT* font, int x, int y, double multiplier, const char* msg, int color, int bg)
 	{	
 		BoundingBox box = {};
@@ -101,6 +102,46 @@ namespace Utility {
 		}
 		gui_set_screen(bmpScreen);
 		font = fontOriginal;
+	}
+
+
+	void create_list(BITMAP* bmp, FONT* fontForText, DIALOG* d, void* listGetter, char* selectedElem, int x, int y, int w, int h, int color)
+	{
+		FONT* fontOriginal = font;
+		font = fontForText;
+
+
+		gui_fg_color = makecol(0, 0, 0);
+		gui_mg_color = makecol(128, 128, 128);
+		gui_bg_color = makecol(242, 219, 195);
+		set_dialog_color(d, gui_fg_color, gui_bg_color);
+
+		d->x = x;
+		d->y = y;
+		d->w = w;
+		d->h = h;
+		d->bg = makecol(242, 219, 195);
+		d->dp = listGetter;
+		d->dp2 = selectedElem;
+
+
+		BITMAP* bmpScreen = gui_get_screen();
+		gui_set_screen(bmp);
+
+		DIALOG_PLAYER* player = init_dialog(d, -1);
+
+		if (!update_dialog(player))
+		{
+			shutdown_dialog(player);
+		}
+		gui_set_screen(bmpScreen);
+		font = fontOriginal;
+	}
+
+	void draw_button(BITMAP* buffer, BITMAP* bitmapBg, BoundingBox box) {
+
+		masked_stretch_blit(bitmapBg, buffer, 0, 0, bitmapBg->w, bitmapBg->h, box.x, box.y, box.w, box.h);
+
 	}
 
 }

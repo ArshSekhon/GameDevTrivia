@@ -3,6 +3,7 @@
 #include <allegro.h>
 #include "menus/MainMenu.h"
 #include "GameIntroScreen.h"
+#include "GameModeSelectionMenu.h"
 
 
 #include "menus/SettingsMenu.h"
@@ -10,6 +11,7 @@
 #include "menus/SoundSettingsMenu.h"
 #include "menus/CreditsMenu.h"
 
+#include "GameQuestionScreen.h"
 
 #include "Constants.h"
 #define CONFIG_FILE "PocketTrivia.cfg"
@@ -27,12 +29,17 @@ private:
 	void bufferToScreen(BITMAP* buffer);
 	void showLoadingScreen(BITMAP* buffer);
 	void renderFrameToScreen(BITMAP* buffer);
+
+	GameIntroScreen* gameIntroScreen;
+
 	MainMenu* mainMenu;
 	GFXSettingsMenu* gfxSettingsMenu;
 	SoundSettingsMenu* soundSettingsMenu;
 	SettingsMenu* settingsMenu;
-	GameIntroScreen* gameIntroScreen;
 	CreditsMenu* creditsMenu;
+	GameModeSelectionMenu* gameModeSelectionMenu;
+
+	GameQuestionScreen* gameQuestionScreen;
 
 	BITMAP* loadScreen; 
 	BITMAP* cursor;
