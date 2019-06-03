@@ -6,7 +6,7 @@
 class Quiz
 {
 private: 
-	Question* questionsList;
+	Question **chapterWiseQuestionsList;
 	int questionCount;
 public:
 	Quiz(const char** questionsFileName, const char** answersFileName, int chapterCount);

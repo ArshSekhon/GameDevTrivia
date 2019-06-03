@@ -3,18 +3,26 @@
 class Question
 { 
 private:
-		char* questionText;
-		char** questionOptions;
-		int correctAnswerIndex; 
 public:
-	Question(char* questionText, char** questionOptions, int correctAnswerIndex);
+	Question(char* questionText, char* option1, char* option2, char* option3, char* option4, int correctAnswerIndex);
+	Question();
 	char* getQuestionText(void);
 	void setQuestionText(char*);
-	char** getQuestionOptions(void);
-	void setQuestionText(char**);
+	//char** getQuestionOptions(void);
+	char* getQuestionOption(int index);
+	void setQuestionOptions(char* option1, char* option2, char* option3, char* option4);
+	//void setQuestionOptions(char** options);
 	void setQuestionAnswer(int correctAnswerIndex);
 	bool checkQuestionAnswer(int answerIndex);
 	int getQuestionAnswerIndex();
 	char* getQuestionAnswer();
+
+	char* questionText;
+	char* option1;
+	char* option2;
+	char* option3;
+	char* option4;
+
+	int correctAnswerIndex;
 };
 

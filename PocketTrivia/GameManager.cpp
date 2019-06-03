@@ -175,12 +175,12 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 		gameIntroScreen->showIntroScreen(buffer);
 		break;
 	case GAME_SCREEN_QUESTION:
-		gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?", new char*[4]{
+		gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?",
 			(char*)"C",
 			(char*)"Pascal",
 			(char*)"C++",
 			(char*)"Assembly"
-			}, 3));
+			, 3));
 		break;
 	case GAME_SCREEN_RESULTS:
 		break;
