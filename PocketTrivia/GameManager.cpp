@@ -110,7 +110,8 @@ int GameManager::init() {
 
 	gameIntroScreen = new GameIntroScreen(gameState, &configManager);
 	gameQuestionScreen = new GameQuestionScreen(gameState);
-
+	const char** questionFile= new const char*[1]{(char*)"Ch1-Questions.txt"  };
+	Quiz quiz(questionFile, NULL, 0);
 
 
 	return 0;
@@ -174,12 +175,12 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 		gameIntroScreen->showIntroScreen(buffer);
 		break;
 	case GAME_SCREEN_QUESTION:
-		gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?", new char*[4]{
+		/*gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?", new char*[4]{
 			(char*)"C",
 			(char*)"Pascal",
 			(char*)"C++",
 			(char*)"Assembly"
-			}, 3));
+			}, 3));*/
 		break;
 	case GAME_SCREEN_RESULTS:
 		break;

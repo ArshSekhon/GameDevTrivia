@@ -1,12 +1,14 @@
 #include "GameQuestionScreen.h"
 
 
+DIALOG gameQuestionDialog = { d_textbox_proc, 0, 0,  0,  0,  0,  0, 0, 0, 0,   0, NULL, NULL, NULL };
 GameQuestionScreen::GameQuestionScreen(GameState* gameState) {
 	this->gameState = gameState;
 	this->optionsBoundingBoxes = new BoundingBox[4];
 	this->questionBannerBitmap = load_bitmap("assets/ui-elem/question-banner.bmp", NULL);
 	this->answerBannerBitmap = load_bitmap("assets/ui-elem/option-banner.bmp", NULL);
 	this->bannerBitmap = load_bitmap("assets/ui-elem/Banner_Sq.bmp", NULL);
+	this->bigFont = (FONT*)load_datafile("assets/bigfont.dat")[0].dat;
 }
 
 
@@ -127,23 +129,23 @@ void GameQuestionScreen::showCorrectAnswerBanner(BITMAP* buffer, Question* quest
 
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "CORRECT ANSWER", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.5, 3, "CORRECT ANSWER!!!", COLOR_TEXT, -1);
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT", COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "CORRECT ANSWER", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.5, 3, "CORRECT ANSWER!!!", COLOR_TEXT, -1);
 
 
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT", COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.35, 3, "CORRECT ANSWER", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.5, 3, "CORRECT ANSWER!!!", COLOR_TEXT, -1);
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT", COLOR_TEXT, -1);
 	}
 
 }
@@ -153,21 +155,35 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Question* questio
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "WRONG ANSWER", COLOR_TEXT, -1);
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.37, 2, "QUESTION", COLOR_TEXT, -1);
+		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.2, SCREEN_H * 0.42, SCREEN_W * 0.6, SCREEN_H * 0.1, COLOR_TEXT);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.5, 1.3, question->getQuestionAnswer(), COLOR_TEXT, -1);
+
+
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT", COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "WRONG ANSWER", COLOR_TEXT, -1);
 
 
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.37, 2, "QUESTION", COLOR_TEXT, -1);
+		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.25, SCREEN_H * 0.4, SCREEN_W * 0.5, SCREEN_H * 0.1, COLOR_TEXT);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.6, 1.5, question->getQuestionAnswer(), COLOR_TEXT, -1);
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "NEXT", COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.35, 3, "WRONG ANSWER", COLOR_TEXT, -1);
 
-		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT QUESTION", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.42, 2, "QUESTION", COLOR_TEXT, -1);
+		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.3, SCREEN_H * 0.45, SCREEN_W * 0.4, SCREEN_H * 0.1, COLOR_TEXT);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H/1.6, 1.5, question->getQuestionAnswer(), COLOR_TEXT, -1);
+		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT", COLOR_TEXT, -1);
 	}
 
 
@@ -178,24 +194,39 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Question* questio
 
 void GameQuestionScreen::showResultsBanner(BITMAP* buffer) {
 
+	char* message = (char*)"";
+	if (gameState->currentScore > 8) {
+		message = (char*) "You did an amazing job!";
+	}else if (gameState->currentScore > 6) {
+		message = (char*) "You passed!";
+	}
+	else {
+		message = (char*) "You need to study harder!";
+	}
+
+
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "RESULTS", COLOR_TEXT, -1);
 
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.55, 1.5, message, COLOR_TEXT, -1);
+		printScoreCentred(buffer, font, SCREEN_W*0.5, SCREEN_H * 0.4, 2, gameState->currentScore, COLOR_HUD_TEXT, -1);
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "RESULTS", COLOR_TEXT, -1);
 
-
-
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.55, 1.5, message, COLOR_TEXT, -1);
+		printScoreCentred(buffer, font, SCREEN_W * 0.5, SCREEN_H * 0.4, 2, gameState->currentScore, COLOR_HUD_TEXT, -1);
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.75, 2, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.35, 3, "RESULTS", COLOR_TEXT, -1);
 
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.55, 1.5, message, COLOR_TEXT, -1);
+		printScoreCentred(buffer, font, SCREEN_W * 0.5, SCREEN_H * 0.47, 2, gameState->currentScore, COLOR_HUD_TEXT, -1);
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 	}
 
@@ -228,12 +259,18 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Question* question) {
 
 
 
+		// print info header
+		printScore(buffer, font, SCREEN_W * 0.38, SCREEN_H * 0.15, 1.3, gameState->currentScore, COLOR_HUD_TEXT, -1);
+		printQuestionNumber(buffer, font, SCREEN_W * 0.83, SCREEN_H * 0.15, 1.3, gameState->currentQuestion + 1, COLOR_HUD_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.22, 2.5, "QUESTION", COLOR_TEXT, -1);
+		// display question text box
+		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.13, SCREEN_H * 0.28, SCREEN_W * 0.74, SCREEN_H * 0.2, COLOR_TEXT);
 
 		//print options
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 2, question->getQuestionOptions()[0], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 2, question->getQuestionOptions()[1], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 2, question->getQuestionOptions()[2], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 2, question->getQuestionOptions()[3], COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 1, question->getQuestionOption(0), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 1, question->getQuestionOption(1), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 1, question->getQuestionOption(2), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 1, question->getQuestionOption(3), COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(questionBannerBitmap, buffer, 0, 0, questionBannerBitmap->w, questionBannerBitmap->h, (SCREEN_W - questionBannerBitmap->w / 1.3) / 2, (SCREEN_H - questionBannerBitmap->h / 1.3) * 0.15, questionBannerBitmap->w / 1.3, questionBannerBitmap->h / 1.3);
@@ -257,11 +294,18 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Question* question) {
 
 
 
+		// print info header
+		printScore(buffer, font, SCREEN_W * 0.3, SCREEN_H * 0.18, 2, gameState->currentScore, COLOR_HUD_TEXT, -1);
+		printQuestionNumber(buffer, font, SCREEN_W * 0.9, SCREEN_H * 0.18, 2, gameState->currentQuestion + 1, COLOR_HUD_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.17, 3, "QUESTION", COLOR_TEXT, -1);
+
+		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.09, SCREEN_H * 0.22, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
+
 		//print options
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 2.5, question->getQuestionOptions()[0], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 2.5, question->getQuestionOptions()[1], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 2.5, question->getQuestionOptions()[2], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 2.5, question->getQuestionOptions()[3], COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 1.5, question->getQuestionOption(0), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 1.5, question->getQuestionOption(1), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 1.5, question->getQuestionOption(2), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 1.5, question->getQuestionOption(3), COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(questionBannerBitmap, buffer, 0, 0, questionBannerBitmap->w, questionBannerBitmap->h, (SCREEN_W - questionBannerBitmap->w) / 2, (SCREEN_H - questionBannerBitmap->h) * 0.1, questionBannerBitmap->w, questionBannerBitmap->h);
@@ -287,11 +331,13 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Question* question) {
 		printQuestionNumber(buffer, font, SCREEN_W * 0.88, SCREEN_H * 0.12, 2, gameState->currentQuestion+1, COLOR_HUD_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.16, 3, "QUESTION", COLOR_TEXT, -1);
 
-
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W/2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h/2, 3, question->getQuestionOptions()[0], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 3, question->getQuestionOptions()[1], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 3, question->getQuestionOptions()[2], COLOR_TEXT, -1);
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 3, question->getQuestionOptions()[3], COLOR_TEXT, -1);
+		// display question text box
+		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, question->getQuestionText(), SCREEN_W * 0.09, SCREEN_H * 0.2, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
+		//print options
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W/2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h/2, 2, question->getQuestionOption(0), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 2, question->getQuestionOption(1), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[2].y + optionsBoundingBoxes[2].h / 2, 2, question->getQuestionOption(2), COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[3].y + optionsBoundingBoxes[0].h / 2, 2, question->getQuestionOption(3), COLOR_TEXT, -1);
 	}
 }
 
@@ -322,6 +368,31 @@ void GameQuestionScreen::printScore(BITMAP* bmp, FONT* font, int x, int y, doubl
 }
 
 
+void GameQuestionScreen::printScoreCentred(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int score, int color, int bg)
+{
+	BoundingBox box = {};
+	BITMAP* tmp;
+	tmp = create_bitmap(text_length(font, "Score: XX/XX"), text_height(font));
+	if (!tmp)
+		return;
+	clear_to_color(tmp, makecol(255, 0, 255));
+
+	textprintf_ex(tmp, font, 0, 0, color, bg, "Score: %d/%d", score, NUMBER_OF_QUESTIONS_PER_GAME);
+
+	box.x = x - (int)(tmp->w * multiplier);
+	box.y = y - (int)(tmp->h * multiplier);
+	box.w = (int)(tmp->w * multiplier);
+	box.h = (int)(tmp->h * multiplier);
+
+	masked_stretch_blit(tmp, bmp, 0, 0, tmp->w, tmp->h, box.x + box.w/2, box.y + box.h / 2, box.w, box.h);
+	destroy_bitmap(tmp);
+
+	return;
+
+}
+
+
+
 
 void GameQuestionScreen::printQuestionNumber(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int questionNo, int color, int bg)
 {
@@ -345,3 +416,5 @@ void GameQuestionScreen::printQuestionNumber(BITMAP* bmp, FONT* font, int x, int
 	return;
 
 }
+
+

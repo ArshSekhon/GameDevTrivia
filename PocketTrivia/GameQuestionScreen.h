@@ -29,7 +29,9 @@ private:
 
 
     void printScore(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int score, int color, int bg);
+	void printScoreCentred(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int score, int color, int bg);
 	void printQuestionNumber(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int questionNo, int color, int bg);
+	FONT* bigFont;
 	 
 };
 
