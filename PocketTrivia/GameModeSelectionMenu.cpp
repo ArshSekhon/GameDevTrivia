@@ -13,7 +13,7 @@ char* chapter_listbox_getter(int index, int* list_size)
 	};
 
 	if (index < 0) {
-		*list_size = 22;
+		*list_size = 23;
 		return NULL;
 	}
 	else {
