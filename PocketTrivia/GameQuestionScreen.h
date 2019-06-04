@@ -2,14 +2,17 @@
 #include "Constants.h"
 #include "entities/Quiz.h"
 #include "Utility.h"
+#include "SoundManager.h"
+
 #include <allegro.h>
 
 class GameQuestionScreen
 {
 public:
-	GameQuestionScreen(GameState* gameState);
+	GameQuestionScreen(GameState* gameState, SoundManager* soundManager);
 	void showQuestionScreen(BITMAP* buffer, Quiz* quiz);
 private:
+	SoundManager* soundManager;
 	BITMAP* questionBannerBitmap;
 	BITMAP* answerBannerBitmap;
 	BITMAP* bannerBitmap;
@@ -17,6 +20,7 @@ private:
 	BoundingBox* optionsBoundingBoxes;
 	BoundingBox nextQuestionButton;
 	BoundingBox exitToMainMenuButton;
+	DIALOG_PLAYER* questionScreenPlayer;
 
 	int showingCorrectAnswerBanner;
 	int showingWrongAnswerBanner;

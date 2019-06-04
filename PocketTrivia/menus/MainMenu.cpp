@@ -83,7 +83,12 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 		gameState->mouseHover = 1;
 
 		if (mouse_b & 1){
-			gameState->gameScreen = GAME_SCREEN_QUIZ_START;
+
+			if (!gameState->skip_intro)
+				gameState->gameScreen = GAME_SCREEN_QUIZ_START;
+			else
+				gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
+
 			//reset the score and current question number
 			gameState->currentQuestion = 0;
 			gameState->currentScore = 0;
@@ -120,7 +125,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 	}
 
 	//mouse coordinates
-	textprintf(buffer, font, 10, 10, -1, "X:%d Y:%d S:%d S:%d C:%d E:%d GS:%d FS:%d", mouse_x, mouse_y, startButton.y, settingsButton.y, creditsButton.y, exitButton.y, gameState->gameScreen, gameState->fullscreen);
+	//textprintf(buffer, font, 10, 10, -1, "X:%d Y:%d S:%d S:%d C:%d E:%d GS:%d FS:%d", mouse_x, mouse_y, startButton.y, settingsButton.y, creditsButton.y, exitButton.y, gameState->gameScreen, gameState->fullscreen);
 	
 	//draw buffer to screen and clear buffer
 	blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);

@@ -69,6 +69,9 @@
     <ClCompile Include="GameQuestionScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConfigManager.h">
@@ -113,6 +116,9 @@
     <ClInclude Include="GameQuestionScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\main-menu\MainMenuButtons.bmp">
@@ -145,6 +151,7 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="assets\bigfont.dat" />
+    <None Include="sounds\music.MID" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="questions\Chapter-10-Questions.txt" />
@@ -167,5 +174,22 @@
     <Text Include="questions\Chapter-9-Answers.txt" />
     <Text Include="questions\Chapter-9-Questions.txt" />
     <Text Include="questions\Chapter-10-Answers.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\buzzer.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="sounds\cheering.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="sounds\click.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="sounds\whah_whah.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="sounds\boing.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

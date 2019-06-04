@@ -4,6 +4,7 @@
 #include "menus/MainMenu.h"
 #include "GameIntroScreen.h"
 #include "GameModeSelectionMenu.h"
+#include  "SoundManager.h"
 
 
 #include "menus/SettingsMenu.h"
@@ -42,6 +43,8 @@ private:
 	GameQuestionScreen* gameQuestionScreen;
 
 	Quiz* quiz;
+
+	SoundManager* soundManager;
 
 	BITMAP* loadScreen; 
 	BITMAP* cursor;

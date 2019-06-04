@@ -72,7 +72,7 @@ namespace Utility {
 
 	}
 	// this function was obtained from Kitty Cat's post in https://www.allegro.cc/forums/thread/581296 
-	void draw_wrapping_text(BITMAP* bmp, FONT* fontForText, DIALOG* d, char* str, int x, int y, int w, int h, int color)
+	DIALOG_PLAYER* draw_wrapping_text(BITMAP* bmp, FONT* fontForText, DIALOG* d, char* str, int x, int y, int w, int h, int color)
 	{
 		FONT* fontOriginal = font;
 		font = fontForText;
@@ -102,6 +102,7 @@ namespace Utility {
 		}
 		gui_set_screen(bmpScreen);
 		font = fontOriginal;
+		return player;
 	}
 
 

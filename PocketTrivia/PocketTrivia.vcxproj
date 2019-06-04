@@ -192,6 +192,7 @@
     <ClCompile Include="entities\Quiz.cpp" />
     <ClCompile Include="menus\SettingsMenu.cpp" />
     <ClCompile Include="menus\SoundSettingsMenu.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -208,11 +209,13 @@
     <ClInclude Include="entities\Quiz.h" />
     <ClInclude Include="menus\SettingsMenu.h" />
     <ClInclude Include="menus\SoundSettingsMenu.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\bigfont.dat" />
     <None Include="PocketTrivia.cfg" />
+    <None Include="sounds\music.MID" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\ui-elem\Banner_Sq.bmp" />
@@ -245,6 +248,13 @@
     <Text Include="questions\Chapter-8-Questions.txt" />
     <Text Include="questions\Chapter-9-Answers.txt" />
     <Text Include="questions\Chapter-9-Questions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\boing.wav" />
+    <Media Include="sounds\buzzer.wav" />
+    <Media Include="sounds\cheering.wav" />
+    <Media Include="sounds\click.wav" />
+    <Media Include="sounds\whah_whah.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

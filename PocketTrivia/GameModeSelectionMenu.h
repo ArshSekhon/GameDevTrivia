@@ -6,7 +6,7 @@
 #include "entities/Quiz.h"
 #include <allegro.h>
 
-#define CHAPTER_COUNT 22
+#define CHAPTER_COUNT 9
 
 class GameModeSelectionMenu
 {
@@ -30,7 +30,8 @@ private:
 		"questions/Chapter-7-Questions.txt",
 		"questions/Chapter-8-Questions.txt",
 		"questions/Chapter-9-Questions.txt",
-		"questions/Chapter-10-Questions.txt",
+		//"questions/Chapter-10-Questions.txt"
+		/*,
 		"questions/Chapter-11-Questions.txt",
 		"questions/Chapter-12-Questions.txt",
 		"questions/Chapter-13-Questions.txt",
@@ -42,7 +43,7 @@ private:
 		"questions/Chapter-19-Questions.txt",
 		"questions/Chapter-20-Questions.txt",
 		"questions/Chapter-21-Questions.txt",
-		"questions/Chapter-22-Questions.txt" 
+		"questions/Chapter-22-Questions.txt" */
 	};
 
 	const char* chapterAnswersList[CHAPTER_COUNT] = { 
@@ -55,7 +56,8 @@ private:
 		"questions/Chapter-7-Answers.txt",
 		"questions/Chapter-8-Answers.txt",
 		"questions/Chapter-9-Answers.txt",
-		"questions/Chapter-10-Answers.txt",
+		//"questions/Chapter-10-Answers.txt"
+		/*,
 		"questions/Chapter-11-Answers.txt",
 		"questions/Chapter-12-Answers.txt",
 		"questions/Chapter-13-Answers.txt",
@@ -67,7 +69,7 @@ private:
 		"questions/Chapter-19-Answers.txt",
 		"questions/Chapter-20-Answers.txt",
 		"questions/Chapter-21-Answers.txt",
-		"questions/Chapter-22-Answers.txt" 
+		"questions/Chapter-22-Answers.txt"*/ 
 	};
 
 };

@@ -27,6 +27,13 @@
 #define GAME_SCREEN_CREDITS 10
 
 
+//SOUND EFFECTS
+#define SOUND_CLICK 0
+#define SOUND_CHEERING 1
+#define SOUND_BUZZER 2
+#define SOUND_BOING 3
+
+
 
 
 // Error and Exception codes
@@ -74,6 +81,8 @@ struct GameState {
 
 	int currentQuestion;
 	int currentScore;
+
+	int bgMusicPlaying;
 };
 
 struct BoundingBox {

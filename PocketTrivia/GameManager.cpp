@@ -105,7 +105,10 @@ int GameManager::init() {
 	gameModeSelectionMenu = new GameModeSelectionMenu(gameState);
 
 	gameIntroScreen = new GameIntroScreen(gameState, &configManager);
-	gameQuestionScreen = new GameQuestionScreen(gameState);
+	soundManager = new SoundManager(gameState);
+	gameQuestionScreen = new GameQuestionScreen(gameState, soundManager);
+
+	soundManager->playBgMusic(1);
 	
 
 
@@ -116,6 +119,11 @@ void GameManager::runGameLoop() {
 	BITMAP* buffer = NULL;
 	
 	while (!key[KEY_ESC] && !close_button_flag && !gameState->exitGame) {
+
+
+		if (gameState->mouseHover == 1 && (mouse_b & 1)) {
+			soundManager->playSound(SOUND_CLICK, 1000);
+		} 
 
 		if (gameState->gfxSettingsUpdated) {
 			gameState->gfxSettingsUpdated = 0;

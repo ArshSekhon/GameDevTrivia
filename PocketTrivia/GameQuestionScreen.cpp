@@ -2,9 +2,10 @@
 
 
 DIALOG gameQuestionDialog = { d_textbox_proc, 0, 0,  0,  0,  0,  0, 0, 0, 0,   0, NULL, NULL, NULL };
-GameQuestionScreen::GameQuestionScreen(GameState* gameState) {
+GameQuestionScreen::GameQuestionScreen(GameState* gameState, SoundManager* soundManager) {
 	this->gameState = gameState;
 	this->optionsBoundingBoxes = new BoundingBox[4];
+	this->soundManager = soundManager;
 	this->questionBannerBitmap = load_bitmap("assets/ui-elem/question-banner.bmp", NULL);
 	this->answerBannerBitmap = load_bitmap("assets/ui-elem/option-banner.bmp", NULL);
 	this->bannerBitmap = load_bitmap("assets/ui-elem/Banner_Sq.bmp", NULL);
@@ -41,11 +42,16 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,0)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
+				soundManager->playSound(SOUND_CHEERING, 1000);
 			}
 			else{
 				this->showingWrongAnswerBanner = 1;
+				soundManager->playSound(SOUND_BUZZER, 1000);
 			}
 
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
+			}
 			rest(200);
 		}
 	}
@@ -56,9 +62,14 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,1)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
+				soundManager->playSound(SOUND_CHEERING, 1000);
 			}
 			else {
 				this->showingWrongAnswerBanner = 1;
+				soundManager->playSound(SOUND_BUZZER, 1000);
+			}
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
 			}
 			rest(200);
 		}
@@ -70,9 +81,14 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,2)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
+				soundManager->playSound(SOUND_CHEERING, 1000);
 			}
 			else {
 				this->showingWrongAnswerBanner = 1;
+				soundManager->playSound(SOUND_BUZZER, 1000);
+			}
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
 			}
 			rest(200);
 		}
@@ -84,9 +100,14 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion, 3)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
+				soundManager->playSound(SOUND_CHEERING, 1000);
 			}
 			else {
 				this->showingWrongAnswerBanner = 1;
+				soundManager->playSound(SOUND_BUZZER, 1000);
+			}
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
 			}
 			rest(200);
 		}
@@ -99,6 +120,9 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			gameState->currentScore = 0;
 			gameState->currentQuestion = 0;
 			this->showingResultsBanner = 0;
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
+			}
 			rest(200);
 		}
 	}
@@ -148,7 +172,6 @@ void GameQuestionScreen::showCorrectAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
 		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT", COLOR_TEXT, -1);
 	}
-
 }
 void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
@@ -157,7 +180,7 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "WRONG ANSWER", COLOR_TEXT, -1);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.37, 2, "QUESTION", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.2, SCREEN_H * 0.42, SCREEN_W * 0.6, SCREEN_H * 0.1, COLOR_TEXT);
+		questionScreenPlayer = Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.2, SCREEN_H * 0.42, SCREEN_W * 0.6, SCREEN_H * 0.1, COLOR_TEXT);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.5, 1.3, quiz->getQuestionAnswer(gameState->currentQuestion), COLOR_TEXT, -1);
 
@@ -170,7 +193,7 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.37, 2, "QUESTION", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.25, SCREEN_H * 0.4, SCREEN_W * 0.5, SCREEN_H * 0.1, COLOR_TEXT);
+		questionScreenPlayer = Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.25, SCREEN_H * 0.4, SCREEN_W * 0.5, SCREEN_H * 0.1, COLOR_TEXT);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.6, 1.5, quiz->getQuestionAnswer(gameState->currentQuestion), COLOR_TEXT, -1);
 
@@ -181,7 +204,7 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.35, 3, "WRONG ANSWER", COLOR_TEXT, -1);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.42, 2, "QUESTION", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.3, SCREEN_H * 0.45, SCREEN_W * 0.4, SCREEN_H * 0.1, COLOR_TEXT);
+		questionScreenPlayer = Utility::draw_wrapping_text(buffer, font, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.3, SCREEN_H * 0.45, SCREEN_W * 0.4, SCREEN_H * 0.1, COLOR_TEXT);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H / 1.7, 2, "CORRECT ANSWER:", COLOR_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H/1.6, 1.5, quiz->getQuestionAnswer(gameState->currentQuestion), COLOR_TEXT, -1);
 		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT", COLOR_TEXT, -1);
