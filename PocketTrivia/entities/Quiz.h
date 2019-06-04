@@ -20,9 +20,10 @@ private:
 public:
 	Quiz(const char** questionsFileName, const char** answersFileName, int chapterCount);
 	char* getQuestionText(int quizQuestionListIndex);
-	char* getOptionText(int quizQuestionListIndex, int optionIndex);
+	char* getQuestionOption(int quizQuestionListIndex, int optionIndex);
 	int getQuestionAnswerIndex(int quizQuestionListIndex);
 	char* getQuestionAnswer(int quizQuestionListIndex);
+	int checkQuestionAnswer(int quizQuestionListIndex, int chosenOption);
 
 };
 

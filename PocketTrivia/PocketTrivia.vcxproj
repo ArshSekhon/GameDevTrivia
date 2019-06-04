@@ -195,10 +195,6 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Ch1-Answers.txt" />
-    <Text Include="Ch1-Questions.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameIntroScreen.h" />
     <ClInclude Include="GameManager.h" />
@@ -227,6 +223,28 @@
     <Image Include="assets\ui-elem\option-banner.bmp" />
     <Image Include="assets\ui-elem\pointer.bmp" />
     <Image Include="assets\ui-elem\question-banner.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions\Chapter-1-Answers.txt" />
+    <Text Include="questions\Chapter-1-Questions.txt" />
+    <Text Include="questions\Chapter-10-Answers.txt" />
+    <Text Include="questions\Chapter-10-Questions.txt" />
+    <Text Include="questions\Chapter-2-Answers.txt" />
+    <Text Include="questions\Chapter-2-Questions.txt" />
+    <Text Include="questions\Chapter-3-Answers.txt" />
+    <Text Include="questions\Chapter-3-Questions.txt" />
+    <Text Include="questions\Chapter-4-Answers.txt" />
+    <Text Include="questions\Chapter-4-Questions.txt" />
+    <Text Include="questions\Chapter-5-Answers.txt" />
+    <Text Include="questions\Chapter-5-Questions.txt" />
+    <Text Include="questions\Chapter-6-Answers.txt" />
+    <Text Include="questions\Chapter-6-Questions.txt" />
+    <Text Include="questions\Chapter-7-Answers.txt" />
+    <Text Include="questions\Chapter-7-Questions.txt" />
+    <Text Include="questions\Chapter-8-Answers.txt" />
+    <Text Include="questions\Chapter-8-Questions.txt" />
+    <Text Include="questions\Chapter-9-Answers.txt" />
+    <Text Include="questions\Chapter-9-Questions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

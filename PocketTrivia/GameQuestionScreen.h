@@ -1,6 +1,6 @@
 #pragma once
 #include "Constants.h"
-#include "entities/Question.h"
+#include "entities/Quiz.h"
 #include "Utility.h"
 #include <allegro.h>
 
@@ -8,7 +8,7 @@ class GameQuestionScreen
 {
 public:
 	GameQuestionScreen(GameState* gameState);
-	void showQuestionScreen(BITMAP* buffer, Question* question);
+	void showQuestionScreen(BITMAP* buffer, Quiz* quiz);
 private:
 	BITMAP* questionBannerBitmap;
 	BITMAP* answerBannerBitmap;
@@ -22,9 +22,9 @@ private:
 	int showingWrongAnswerBanner;
 	int showingResultsBanner;
 
-	void showCorrectAnswerBanner(BITMAP* buffer, Question* question);
-	void showWrongAnswerBanner(BITMAP* buffer, Question* question);
-	void showQuestion(BITMAP* buffer, Question* question);
+	void showCorrectAnswerBanner(BITMAP* buffer, Quiz* quiz);
+	void showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz);
+	void showQuestion(BITMAP* buffer, Quiz* quiz);
 	void showResultsBanner(BITMAP* buffer);
 
 

@@ -41,6 +41,8 @@ private:
 
 	GameQuestionScreen* gameQuestionScreen;
 
+	Quiz* quiz;
+
 	BITMAP* loadScreen; 
 	BITMAP* cursor;
 	BITMAP* cursorHand;

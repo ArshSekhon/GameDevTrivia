@@ -19,10 +19,6 @@ END_OF_FUNCTION(close_button_handler)
 
 
 GameManager::GameManager(GameState* gs) { 
-	const char** questionFiles = new const char*[2]{ "Ch1-Questions.txt","Ch1-Questions.txt" };
-	const char** answerFiles = new const char* [2]{ "Ch1-Answers.txt","Ch1-Answers.txt" };
-	char a = questionFiles[0][2];
-	Quiz quiz(questionFiles, answerFiles,2);
 	gameState = gs;
 	gs->gameScreen = GAME_SCREEN_LOADING;
 	gs->gfxSettingsUpdated = 1;
@@ -168,20 +164,14 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 		soundSettingsMenu->showSoundSettingsMenu(buffer);
 		break;
 	case GAME_SCREEN_GAME_MODE_SELECTION:
-		gameModeSelectionMenu->showGameModeMenu(buffer);
+		quiz = gameModeSelectionMenu->showGameModeMenu(buffer);
 		break; 
 	case GAME_SCREEN_QUIZ_START:
 		gameIntroScreen->showIntroScreen(buffer);
 		break;
-	case GAME_SCREEN_QUESTION:/*
-		gameQuestionScreen->showQuestionScreen(buffer, new Question((char*)"What programming language is used in this book?",
-			(char*)"C",
-			(char*)"Pascal",
-			(char*)"C++",
-			(char*)"Assembly"
-			, 3));*/
-		break;
-	case GAME_SCREEN_RESULTS:
+	case GAME_SCREEN_QUESTION:
+		if(quiz!= NULL)
+		gameQuestionScreen->showQuestionScreen(buffer, quiz);
 		break;
 	case GAME_SCREEN_CREDITS:
 		creditsMenu->showCreditsScreen(buffer);

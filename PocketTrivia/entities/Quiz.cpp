@@ -84,16 +84,18 @@ Quiz::Quiz(const char** questionsFileNames, const char** answersFileNames, int c
 	for (int i = 0; i < chapterCount; i++)
 		totalQuestions += questionsCount[i];
 	if (totalQuestions < NUMBER_OF_QUESTIONS_PER_GAME)
-		throw - 1;
+		throw EXCEPTION_NOT_ENOUGH_QUESTIONS;
 
-	//generate random quiz out of the chapters
+	//generate random quiz out of the chapters make sure no repetition
 	for (int i = 0; i < NUMBER_OF_QUESTIONS_PER_GAME; i++) {
 		int randChapterIndex = rand() % chapterCount;
 		int randQuestionIndex = rand() % questionsCount[randChapterIndex];
-		//TODO: make questions distinct
 		if (!questionAlreadyInQuizQuestionList(randChapterIndex, randQuestionIndex, i)) {
 			quizQuestionList[i][0] = randChapterIndex;
 			quizQuestionList[i][1] = randQuestionIndex;
+		}
+		else {
+			i--;
 		}
 	}
 
@@ -103,7 +105,7 @@ char* Quiz::getQuestionText(int quizQuestionListIndex) {
 	QuizQuestion* question = &chapterWiseQuestionsList[quizQuestionList[quizQuestionListIndex][0]][quizQuestionList[quizQuestionListIndex][1]];
 	return question->questionText;
 }
-char* Quiz::getOptionText(int quizQuestionListIndex, int optionIndex) {
+char* Quiz::getQuestionOption(int quizQuestionListIndex, int optionIndex) {
 	QuizQuestion* question = &chapterWiseQuestionsList[quizQuestionList[quizQuestionListIndex][0]][quizQuestionList[quizQuestionListIndex][1]];
 	return question->options[optionIndex];
 }
@@ -116,8 +118,12 @@ char* Quiz::getQuestionAnswer(int quizQuestionListIndex) {
 	return question->options[question->correctAnswerIndex];
 }
 int Quiz::questionAlreadyInQuizQuestionList(int chapterIndex, int questionIndex, int questionListIndex) {
-	for (int i = 0; i < questionListIndex; i++)
-		if (quizQuestionList[i][0] == chapterIndex && quizQuestionList[i][0] == questionIndex)
+	for (int i = 0; i <questionListIndex; i++)
+		if (quizQuestionList[i][0] == chapterIndex && quizQuestionList[i][1] == questionIndex)
 			return 1;
 	return 0;
+}
+int Quiz::checkQuestionAnswer(int quizQuestionListIndex, int chosenOption) {
+	QuizQuestion* question = &chapterWiseQuestionsList[quizQuestionList[quizQuestionListIndex][0]][quizQuestionList[quizQuestionListIndex][1]];
+	return chosenOption == question->correctAnswerIndex;
 }

@@ -115,14 +115,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Ch1-Answers.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="Ch1-Questions.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="assets\main-menu\MainMenuButtons.bmp">
       <Filter>Resource Files</Filter>
     </Image>
@@ -153,5 +145,27 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="assets\bigfont.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions\Chapter-10-Questions.txt" />
+    <Text Include="questions\Chapter-1-Answers.txt" />
+    <Text Include="questions\Chapter-1-Questions.txt" />
+    <Text Include="questions\Chapter-2-Answers.txt" />
+    <Text Include="questions\Chapter-2-Questions.txt" />
+    <Text Include="questions\Chapter-3-Answers.txt" />
+    <Text Include="questions\Chapter-3-Questions.txt" />
+    <Text Include="questions\Chapter-4-Answers.txt" />
+    <Text Include="questions\Chapter-4-Questions.txt" />
+    <Text Include="questions\Chapter-5-Answers.txt" />
+    <Text Include="questions\Chapter-5-Questions.txt" />
+    <Text Include="questions\Chapter-6-Answers.txt" />
+    <Text Include="questions\Chapter-6-Questions.txt" />
+    <Text Include="questions\Chapter-7-Answers.txt" />
+    <Text Include="questions\Chapter-7-Questions.txt" />
+    <Text Include="questions\Chapter-8-Answers.txt" />
+    <Text Include="questions\Chapter-8-Questions.txt" />
+    <Text Include="questions\Chapter-9-Answers.txt" />
+    <Text Include="questions\Chapter-9-Questions.txt" />
+    <Text Include="questions\Chapter-10-Answers.txt" />
   </ItemGroup>
 </Project>

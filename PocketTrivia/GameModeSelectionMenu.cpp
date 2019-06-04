@@ -22,6 +22,7 @@ char* chapter_listbox_getter(int index, int* list_size)
 }
 
 
+
 DIALOG chapterListDialog = { d_list_proc, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (void*)chapter_listbox_getter, NULL,  NULL };
 
 
@@ -32,7 +33,7 @@ GameModeSelectionMenu::GameModeSelectionMenu(GameState* gameState) {
 
 }
 
-void GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
+Quiz* GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 
 	// clear BG
 	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, COLOR_BG);
@@ -42,7 +43,7 @@ void GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 
-		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 2, "WHERE TO PICK QUESTIONS FROM?", COLOR_TEXT, -1);
+		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 1.5, "WHERE TO PICK QUESTIONS FROM?", COLOR_TEXT, -1);
 		Utility::create_list(buffer, font, &chapterListDialog, chapter_listbox_getter, gameState->chapter_selection, SCREEN_W * 0.2, SCREEN_H * 0.32, SCREEN_W * 0.6, SCREEN_H * 0.4, 10);
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.78, 1.5, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 		playButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.35, SCREEN_H * 0.78, 1.5, "PLAY!", COLOR_TEXT, -1);
@@ -72,16 +73,21 @@ void GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;
 			gameState->mouseHover = 0;
 			rest(300);
-			return;
+			return NULL;
 		}
 	}
 	else if (Utility::inTheBoundingBox(playButton)) {
 		gameState->mouseHover = 1;
 		if (mouse_b & 1) { 
-			gameState->gameScreen = GAME_SCREEN_SETTINGS;
+			gameState->gameScreen = GAME_SCREEN_QUESTION;
 			gameState->mouseHover = 0;
 			rest(300);
-			return;
+			char* a = (char*)"Ch1-Questions.txt";
+			const char** questionFiles = new const char* [1]{a };
+			const char** answerFiles = new const char* [1]{ "Ch1-Answers.txt" };
+			//TODO: Create a quiz from selected chapters
+		
+			return prepareQuizFromSelection(gameState->chapter_selection);
 		}
 	}
 	else {
@@ -94,4 +100,30 @@ void GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 	//draw buffer to screen and clear buffer
 	blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
 	clear_bitmap(buffer);
+	return NULL;
+}
+Quiz* GameModeSelectionMenu::prepareQuizFromSelection(char* chapterSelection) {
+	//if all chapter mode selected
+	if (chapterSelection[0] != NULL)
+		return new Quiz(chapterQuestionsList, chapterAnswersList, CHAPTER_COUNT);
+	else {
+		int noOfChaptersSelected = 0;
+		for(int i=0;i<CHAPTER_COUNT;i++)
+			if (chapterSelection[i] != NULL) {
+				noOfChaptersSelected++;
+			}
+		char** chapterQuestionsArray = new char* [noOfChaptersSelected];
+		char** chapterAnswersArray = new char* [noOfChaptersSelected];
+
+		int currentIndex = 0;
+		for (int i = 1; i < CHAPTER_COUNT; i++)
+			if (chapterSelection[i] != NULL) {
+				chapterQuestionsArray[currentIndex] = (char*)chapterQuestionsList[i-1];
+				chapterAnswersArray[currentIndex++] = (char*)chapterAnswersList[i-1];
+			}
+
+		Quiz* quiz = new Quiz((const char**)chapterQuestionsArray, (const char**)chapterAnswersArray, noOfChaptersSelected);
+		return quiz;
+		
+	}
 }
