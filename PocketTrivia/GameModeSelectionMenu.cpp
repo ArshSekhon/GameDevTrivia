@@ -9,11 +9,12 @@ char* chapter_listbox_getter(int index, int* list_size)
 	static char* chapters[] =
 	{
 	  (char*) "All Chapters",  (char*)"Chapter 1: Demystifying Game Development",  (char*) "Chapter 2: Getting Started with the Allegro Game Library",   (char*)"Chapter 3: Getting Started with the Allegro Game Library", (char*)"Chapter 4: Writing Your First Allegro Game",  (char*)"Chapter 5: Getting Input from the Player",
-	  (char*) "Chapter 6: Mastering the AudibleRealm",   (char*)"Chapter 7: Mastering the Audible Realm", (char*)"Chapter 8: Introduction to Sprite Programming",(char*) "Chapter 9: Introduction to Sprite Programming"//,  (char*)"Chapter 10: Advanced Sprite Programming", (char*)"Chapter 11: Programming the Perfect Game Loop",  (char*)"Chapter 12: Programming Tile-Based Scrolling Backgrounds",  (char*)"Chapter 13: Creating a Game World: Editing Tiles and Levels",  (char*)"Chapter 14: Loading Native Mappy Files",  (char*)"Chapter 15: Vertical Scrolling Arcade Games",  (char*)"Chapter 16: Horizontal Scrolling Platform Games",  (char*)"Chapter 17: The Importance of Game Design",  (char*)"Chapter 18: Using Datafiles to Store Game Resources",  (char*)"Chapter 19: Playing Movies and Cut Scenes",  (char*)"Chapter 20: Introduction to Artificial Intelligence",  (char*)"Chapter 21: Multi-Threading",   (char*)"Chapter 22: Publishing Your Game"
+	  (char*) "Chapter 6: Mastering the AudibleRealm",   (char*)"Chapter 7: Mastering the Audible Realm", (char*)"Chapter 8: Introduction to Sprite Programming",(char*) "Chapter 9: Introduction to Sprite Programming",  (char*)"Chapter 10: Advanced Sprite Programming",(char*)"Chapter 11: Programming the Perfect Game Loop",  (char*)"Chapter 12: Programming Tile-Based Scrolling Backgrounds",  (char*)"Chapter 13: Creating a Game World: Editing Tiles and Levels",  (char*)"Chapter 14: Loading Native Mappy Files",  (char*)"Chapter 15: Vertical Scrolling Arcade Games",  (char*)"Chapter 16: Horizontal Scrolling Platform Games",  (char*)"Chapter 17: The Importance of Game Design",  (char*)"Chapter 18: Using Datafiles to Store Game Resources",  (char*)"Chapter 19: Playing Movies and Cut Scenes",  (char*)"Chapter 20: Introduction to Artificial Intelligence",  (char*)"Chapter 21: Multi-Threading",   (char*)"Chapter 22: Publishing Your Game"
 	};
 
 	if (index < 0) {
-		*list_size = 10;
+		//+1 due to the all chapters option
+		*list_size = CHAPTER_COUNT+1;
 		return NULL;
 	}
 	else {
@@ -103,7 +104,7 @@ Quiz* GameModeSelectionMenu::prepareQuizFromSelection(char* chapterSelection) {
 		return new Quiz(chapterQuestionsList, chapterAnswersList, CHAPTER_COUNT);
 	else {
 		int noOfChaptersSelected = 0;
-		for(int i=0;i<CHAPTER_COUNT;i++)
+		for(int i=0;i<=CHAPTER_COUNT;i++)
 			if (chapterSelection[i] != NULL) {
 				noOfChaptersSelected++;
 			}
@@ -111,7 +112,7 @@ Quiz* GameModeSelectionMenu::prepareQuizFromSelection(char* chapterSelection) {
 		char** chapterAnswersArray = new char* [noOfChaptersSelected];
 
 		int currentIndex = 0;
-		for (int i = 1; i < CHAPTER_COUNT; i++)
+		for (int i = 1; i <=CHAPTER_COUNT; i++)
 			if (chapterSelection[i] != NULL) {
 				chapterQuestionsArray[currentIndex] = (char*)chapterQuestionsList[i-1];
 				chapterAnswersArray[currentIndex++] = (char*)chapterAnswersList[i-1];
