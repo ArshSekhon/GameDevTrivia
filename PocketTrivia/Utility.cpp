@@ -99,6 +99,7 @@ namespace Utility {
 		if (!update_dialog(player))
 		{
 			shutdown_dialog(player);
+			player = NULL;
 		}
 		gui_set_screen(bmpScreen);
 		font = fontOriginal;
@@ -134,6 +135,7 @@ namespace Utility {
 		if (!update_dialog(player))
 		{
 			shutdown_dialog(player);
+			player = NULL;
 		}
 		gui_set_screen(bmpScreen);
 		font = fontOriginal;

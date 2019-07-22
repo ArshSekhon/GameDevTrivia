@@ -51,6 +51,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 
 			if (questionScreenPlayer) {
 				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
 			}
 			rest(200);
 		}
@@ -70,6 +71,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			}
 			if (questionScreenPlayer) {
 				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
 			}
 			rest(200);
 		}
@@ -89,6 +91,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			}
 			if (questionScreenPlayer) {
 				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
 			}
 			rest(200);
 		}
@@ -108,6 +111,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			}
 			if (questionScreenPlayer) {
 				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
 			}
 			rest(200);
 		}
@@ -122,6 +126,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			this->showingResultsBanner = 0;
 			if (questionScreenPlayer) {
 				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
 			}
 			rest(200);
 		}
