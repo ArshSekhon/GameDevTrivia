@@ -21,6 +21,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 	const float buttonHeightToBmpHeightRatio = 62.0 / 307;
 	const float buttonGapToBmpHeightRatio = 21.0 / 307;
 
+	// draw graphics on screen for 640x480 mode
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 
 		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, SCREEN_W * 0.1, 20 , SCREEN_W * 0.8, ((gameTitle->h*1.0)/ gameTitle->w) * SCREEN_W * 0.8);
@@ -40,6 +41,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 		creditsButton.y = startButton.y + 2* settingsButton.h + 2 * buttonGapToBmpHeightRatio * (buttonGroupHeight);
 		exitButton.y = startButton.y + 3 * exitButton.h + 3 * buttonGapToBmpHeightRatio * (buttonGroupHeight);
 	}
+	// draw graphics on screen for 960x720 mode
 	else if(SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, (SCREEN_W - gameTitle->w) / 2, SCREEN_H * 0.05, gameTitle->w, gameTitle->h);
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, SCREEN_H * 0.35, bannerBitmap->w*0.9, bannerBitmap->h*0.9);
@@ -58,6 +60,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 		creditsButton.y = startButton.y + 2 * settingsButton.h + 2 * buttonGapToBmpHeightRatio * (buttonGroupHeight);
 		exitButton.y = startButton.y + 3 * exitButton.h + 3 * buttonGapToBmpHeightRatio * (buttonGroupHeight);
 	}
+	// draw graphics on screen for 1280x960 mode
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(gameTitle, buffer, 0, 0, gameTitle->w, gameTitle->h, (SCREEN_W - gameTitle->w) / 2, SCREEN_H*0.05, gameTitle->w, gameTitle->h);
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, SCREEN_H * 0.4, bannerBitmap->w, bannerBitmap->h);
@@ -79,7 +82,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 		exitButton.y = startButton.y + 3 * exitButton.h + 3 * buttonGapToBmpHeightRatio * (buttonGroupHeight);
 	}
 	 
-
+	// handle clicks on the start button
 	if (Utility::mouseInTheBoundingBox(startButton)) {
 		gameState->mouseHover = 1;
 
@@ -99,6 +102,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks on the settings button
 	else if (Utility::mouseInTheBoundingBox(settingsButton)) {
 		gameState->mouseHover = 1;
 
@@ -109,6 +113,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks on the credits button
 	else if (Utility::mouseInTheBoundingBox(creditsButton)) {
 		gameState->mouseHover = 1;
 
@@ -119,6 +124,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks on the exit button
 	else if (Utility::mouseInTheBoundingBox(exitButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick == 1) && !(mouse_b & 1)) {

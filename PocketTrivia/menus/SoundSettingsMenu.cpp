@@ -1,6 +1,6 @@
 #include "SoundSettingsMenu.h"
 
-
+// constructor
 SoundSettingsMenu::SoundSettingsMenu(GameState* gs, ConfigManager* configManager) {
 	this->gameState = gs;
 	this->configManager = configManager;
@@ -28,6 +28,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 		this->bannerBitmap = load_bitmap("assets/ui-elem/Banner_Sq.bmp", NULL);
 	}
 
+	// draw graphics on screen for 640x480 mode
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "VOLUME SETTINGS", COLOR_TEXT, -1);
@@ -49,6 +50,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 3, SCREEN_H * 0.75, 2, "BACK", COLOR_TEXT, -1);
 		applyButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W * 2.0 / 3, SCREEN_H * 0.75, 2, "APPLY", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 960x720 mode
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -78,6 +80,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 3, SCREEN_H * 0.75, 2, "BACK", COLOR_TEXT, -1);
 		applyButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W * 2.0 / 3, SCREEN_H * 0.75, 2, "APPLY", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 1280x960 mode
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -111,7 +114,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 	blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
 	clear_bitmap(buffer);
 
-
+	// handle clicks on the apply button
 	if (Utility::mouseInTheBoundingBox(applyButton)) {
 		gameState->mouseHover = 1;
 
@@ -122,6 +125,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks on the back button
 	else if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -131,6 +135,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks for volume arrows for sound
 	else if (Utility::mouseInTheBoundingBox(soundVolChangeArrows[0]) || Utility::mouseInTheBoundingBox(soundVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -146,6 +151,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(200);
 		}
 	}
+	// handle clicks for volume arrows for music
 	else if (Utility::mouseInTheBoundingBox(musicVolChangeArrows[0]) || Utility::mouseInTheBoundingBox(musicVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -167,6 +173,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 
 
 }
+// this function changes the sound settings and immediately saves the settings to the config file
 
 void SoundSettingsMenu::changeSoundSettings(int musicVol, int soundVol, GameState* gameState) {
 	gameState->music_volume = musicVol;

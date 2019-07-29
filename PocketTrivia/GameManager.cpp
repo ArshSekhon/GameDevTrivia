@@ -29,14 +29,9 @@ GameManager::GameManager(GameState* gs) {
 	cursorHand = NULL;
 	pointerAsCursor = 0;
 }
-int filter(int c, int w, int h, int color_depth) {
-	if (c == GFX_SAFE || c == GFX_AUTODETECT_FULLSCREEN || c == GFX_AUTODETECT_WINDOWED)
-			return 0;
-	return -1;
-}
+ 
 
-
-
+// does the required initialization for the game
 int GameManager::init() {
 	// initialize allegro
 	if (allegro_init() != 0) {
@@ -114,7 +109,7 @@ int GameManager::init() {
 
 	return 0;
 }
-
+//game look
 void GameManager::runGameLoop() {
 	BITMAP* buffer = NULL;
 	
@@ -127,14 +122,15 @@ void GameManager::runGameLoop() {
 		if ((mouse_b & 1)) {
 			gameState->pendingMouseClick = 1;
 		}
+		// if gfx settings change need to create new buffer
 		if (gameState->gfxSettingsUpdated) {
 			gameState->gfxSettingsUpdated = 0;
 			buffer = create_bitmap(gameState->resolution_x, gameState->resolution_y);
 			show_mouse(screen);
 		}
-
 		
 	   renderFrameToScreen(buffer);
+
 	   if (gameState->mouseHover == 1 && pointerAsCursor == 0) {
 		   set_mouse_sprite(cursorHand);
 		   pointerAsCursor = 1;
@@ -153,8 +149,7 @@ void GameManager::exit() {
 	allegro_exit();
 }
  
-void GameManager::bufferToScreen(BITMAP* buffer) {
-}
+// passes on the control to the appropriate object for drawing the graphics and doing the require error handling
 void GameManager::renderFrameToScreen(BITMAP* buffer) {
 	switch (gameState->gameScreen) {
 
@@ -190,7 +185,7 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 
 }
 
- 
+ // draws loading screen on the buffer
 void GameManager::showLoadingScreen(BITMAP* buffer) { 
 	if(this->loadScreen == NULL)
 		loadScreen = load_bitmap("assets/ui-elem/LoadScreenBanner.bmp", NULL);

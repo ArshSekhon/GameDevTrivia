@@ -10,9 +10,10 @@
 #define LEN 32
 
 #define WHITE makecol(255,255,255) 
+//entrypoint
 int main(void) {  
 	GameState gs;
-
+	//default settings if config does not exist
 	gs.resolution_x = 640;
 	gs.resolution_y = 480;
 	gs.fullscreen = 0;

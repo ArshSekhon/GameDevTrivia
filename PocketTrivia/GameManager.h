@@ -27,8 +27,7 @@
 
 class GameManager {
 private:
-	GameState* gameState;
-	void bufferToScreen(BITMAP* buffer);
+	GameState* gameState; 
 	void showLoadingScreen(BITMAP* buffer);
 	void renderFrameToScreen(BITMAP* buffer);
 

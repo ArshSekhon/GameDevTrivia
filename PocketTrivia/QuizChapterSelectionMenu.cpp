@@ -41,6 +41,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 
 
 
+	// draw graphics on screen for 640x480 mode
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 
@@ -49,6 +50,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.78, 1.5, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 		playButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.35, SCREEN_H * 0.78, 1.5, "PLAY!", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 960x720 mode
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -57,6 +59,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 		exitToMainMenuButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2.7, SCREEN_H * 0.74, 1.5, "EXIT TO MAIN MENU", COLOR_TEXT, -1);
 		playButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.44, SCREEN_H * 0.74, 1.5, "PLAY!", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 1280x960 mode
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -66,7 +69,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 		playButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 1.6, SCREEN_H * 0.68, 1.5, "PLAY!", COLOR_TEXT, -1);
 	}
 	 
-
+	// handles click on exit to the main menu button
 	if (Utility::mouseInTheBoundingBox(exitToMainMenuButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -77,6 +80,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 			return NULL;
 		}
 	}
+	// handles click on exit to the play button
 	else if (Utility::mouseInTheBoundingBox(playButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) { 
@@ -84,7 +88,7 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 			gameState->mouseHover = 0;
 			gameState->pendingMouseClick = 0;
 			rest(300);
-		
+			// return a prepared quiz
 			return prepareQuizFromSelection(gameState->chapter_selection);
 		}
 	}
@@ -100,6 +104,8 @@ Quiz* QuizChapterSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 	clear_bitmap(buffer);
 	return NULL;
 }
+
+// function creates a randomized quiz of 10 questions using the chapters selected
 Quiz* QuizChapterSelectionMenu::prepareQuizFromSelection(char* chapterSelection) {
 	//if all chapter mode selected
 	if (chapterSelection[0] != NULL)

@@ -30,6 +30,7 @@ public:
 	 * and also handles mouse click events for the same.
 	 * 
 	 * @param buffer Screen buffer or other buffer where the game chapter screen screen has to be drawn.
+	 * @return Pointer to quiz object created from user's selection of chapters
 	 */
 	Quiz* showGameModeMenu(BITMAP* buffer);
 

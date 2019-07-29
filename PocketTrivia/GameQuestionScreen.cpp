@@ -12,7 +12,7 @@ GameQuestionScreen::GameQuestionScreen(GameState* gameState, SoundManager* sound
 	this->bigFont = (FONT*)load_datafile("assets/bigfont.dat")[0].dat;
 }
 
-
+//draws graphics for the quiz questions and handle the mouse events.
 void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 	
 	// clear BG
@@ -164,6 +164,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 
 }
 
+// draws graphics for correct answer banner
 void GameQuestionScreen::showCorrectAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
@@ -187,6 +188,7 @@ void GameQuestionScreen::showCorrectAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 		nextQuestionButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.69, 2, "NEXT", COLOR_TEXT, -1);
 	}
 }
+// draws graphics for wrong answer banner
 void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
@@ -230,6 +232,7 @@ void GameQuestionScreen::showWrongAnswerBanner(BITMAP* buffer, Quiz* quiz) {
 
 
 
+// draws graphics for results banner
 void GameQuestionScreen::showResultsBanner(BITMAP* buffer) {
 
 	char* message = (char*)"";
@@ -271,8 +274,7 @@ void GameQuestionScreen::showResultsBanner(BITMAP* buffer) {
 
 }
 
-
-
+// draws graphics for question screen
 void GameQuestionScreen::showQuestion(BITMAP* buffer, Quiz* quiz) {
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(questionBannerBitmap, buffer, 0, 0, questionBannerBitmap->w, questionBannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.07, SCREEN_W * 0.8, SCREEN_H * 0.45);
@@ -380,8 +382,7 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Quiz* quiz) {
 }
 
 
-
-
+ 
 void GameQuestionScreen::printScore(BITMAP* bmp, FONT* font, int x, int y, double multiplier, int score, int color, int bg)
 {
 	BoundingBox box = {};

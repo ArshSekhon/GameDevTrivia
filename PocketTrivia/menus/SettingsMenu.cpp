@@ -13,7 +13,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 	// clear BG
 	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, COLOR_BG);
 
-
+	// draw graphics on screen for 640x480 mode
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.35, 3, "SETTINGS", COLOR_TEXT, -1);
@@ -23,6 +23,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 		 
 
 	}
+	// draw graphics on screen for 960x720 mode
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -39,6 +40,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 
 
 	}
+	// draw graphics on screen for 1280x960 mode
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -50,7 +52,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 		 
 	}
 
-
+	// handle clicks on the gfx settings button
 	if (Utility::mouseInTheBoundingBox(gfxSettingButton)) {
 		gameState->mouseHover = 1;
 
@@ -60,6 +62,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 			rest(300); 
 		}
 	}
+	// handle clicks on the sound settings button
 	else if (Utility::mouseInTheBoundingBox(soundSettingButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -68,6 +71,7 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
+	// handle clicks on the back button
 	else if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {

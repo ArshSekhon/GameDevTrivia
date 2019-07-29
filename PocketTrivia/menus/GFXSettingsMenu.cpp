@@ -1,6 +1,6 @@
 #include "GFXSettingsMenu.h"
 //#include <string> 
-
+// constructor to do the initialization
 GFXSettingsMenu::GFXSettingsMenu(GameState* gs, ConfigManager* configManager) {
 	this->gameState = gs;
 	this->configManager = configManager;
@@ -31,6 +31,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 	rectfill(buffer, 0, 0, SCREEN_W, SCREEN_H, COLOR_BG);
 
 
+	// draw graphics on screen for 640x480 mode
 	if (SCREEN_W == 640 && SCREEN_H == 480) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W*0.1 , SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W/2, SCREEN_H * 0.25, 3, "GFX SETTINGS", COLOR_TEXT, -1);
@@ -51,6 +52,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 3, SCREEN_H * 0.75, 2, "BACK", COLOR_TEXT, -1);
 		applyButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W* 2.0/3, SCREEN_H * 0.75, 2, "APPLY", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 960x720 mode
 	else if (SCREEN_W == 960 && SCREEN_H == 720) { 
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -80,6 +82,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 3, SCREEN_H * 0.75, 2, "BACK", COLOR_TEXT, -1);
 		applyButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W * 2.0 / 3, SCREEN_H * 0.75, 2, "APPLY", COLOR_TEXT, -1);
 	}
+	// draw graphics on screen for 1280x960 mode
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
@@ -116,11 +119,12 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 
 
 
-
+	// handle clicks on the apply Button
 	if (Utility::mouseInTheBoundingBox(applyButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
+			// change the gfx settings
 			this->changeGfxMode(buffer, this->gfxResolutionMode, this->gfxScreenMode, this->gameState);
 			gameState->mouseHover = 0;
 			gameState->pendingMouseClick = 0;
@@ -128,6 +132,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			return 1;
 		}
 	} 
+	// handle clicks on the back button
 	else if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -138,6 +143,8 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			return 1;
 		}
 	}
+	
+	// handle clicks on the arrows for the resolution
 	else if (Utility::mouseInTheBoundingBox(resolutionChangeArrows[0]) || Utility::mouseInTheBoundingBox(resolutionChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -152,6 +159,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			rest(200);
 		}
 	}
+	// handle clicks on the arrows for the screen mode
 	else if (Utility::mouseInTheBoundingBox(screenModeChangeArrows[0]) || Utility::mouseInTheBoundingBox(screenModeChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -174,7 +182,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 	return 0;
 }
 
-
+// this function changes the gfx settings and immediately saves the settings to the config file
 void GFXSettingsMenu::changeGfxMode(BITMAP* buffer, int gfxRes , int screenMode, GameState* gameState) {
 
 	int card = (screenMode == GFX_MODE_WINDOWED) ? GFX_AUTODETECT_WINDOWED : GFX_AUTODETECT_FULLSCREEN;
