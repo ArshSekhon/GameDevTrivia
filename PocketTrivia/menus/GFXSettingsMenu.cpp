@@ -117,7 +117,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 
 
 
-	if (Utility::inTheBoundingBox(applyButton)) {
+	if (Utility::mouseInTheBoundingBox(applyButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -128,7 +128,7 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			return 1;
 		}
 	} 
-	else if (Utility::inTheBoundingBox(backButton)) {
+	else if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_SETTINGS;
@@ -138,13 +138,13 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			return 1;
 		}
 	}
-	else if (Utility::inTheBoundingBox(resolutionChangeArrows[0]) || Utility::inTheBoundingBox(resolutionChangeArrows[1])) {
+	else if (Utility::mouseInTheBoundingBox(resolutionChangeArrows[0]) || Utility::mouseInTheBoundingBox(resolutionChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
-			if (Utility::inTheBoundingBox(resolutionChangeArrows[0])) {
+			if (Utility::mouseInTheBoundingBox(resolutionChangeArrows[0])) {
 				if (--gfxResolutionMode < 0)
 					gfxResolutionMode = 2;
-			}else if (Utility::inTheBoundingBox(resolutionChangeArrows[1])) {
+			}else if (Utility::mouseInTheBoundingBox(resolutionChangeArrows[1])) {
 				if (++gfxResolutionMode > 2)
 					gfxResolutionMode = 0;
 			}
@@ -152,14 +152,14 @@ int GFXSettingsMenu::showGfxMenu(BITMAP* buffer) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(screenModeChangeArrows[0]) || Utility::inTheBoundingBox(screenModeChangeArrows[1])) {
+	else if (Utility::mouseInTheBoundingBox(screenModeChangeArrows[0]) || Utility::mouseInTheBoundingBox(screenModeChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
-			if (Utility::inTheBoundingBox(screenModeChangeArrows[0])) {
+			if (Utility::mouseInTheBoundingBox(screenModeChangeArrows[0])) {
 				if (--gfxScreenMode < 0)
 					gfxScreenMode = 1;
 			}
-			else if (Utility::inTheBoundingBox(screenModeChangeArrows[1])) {
+			else if (Utility::mouseInTheBoundingBox(screenModeChangeArrows[1])) {
 				if (++gfxScreenMode > 1)
 					gfxScreenMode = 0;
 			}

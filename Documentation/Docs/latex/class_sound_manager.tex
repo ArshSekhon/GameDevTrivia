@@ -1,0 +1,96 @@
+\hypertarget{class_sound_manager}{}\section{Sound\+Manager Class Reference}
+\label{class_sound_manager}\index{SoundManager@{SoundManager}}
+
+
+Manages sound and music for the game. Also Provides methods to play different sound effects.  
+
+
+
+
+{\ttfamily \#include $<$Sound\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sound_manager_a92850e5896fef1d8529fb26a057d1e15}{Sound\+Manager}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$game\+State)
+\begin{DoxyCompactList}\small\item\em Construct a new Sound Manager object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sound_manager_a80e41108d739852c94c563d3f96c7cd1}{play\+Bg\+Music}} (int loop)
+\begin{DoxyCompactList}\small\item\em Starts playing background game music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sound_manager_aaaf5f2a309aef452b8f3b749bce66698}{stop\+Bg\+Music}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the background game music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sound_manager_a968f3c4811334fffe0f97809e7065722}{play\+Sound}} (int sfx\+Id, int freq)
+\begin{DoxyCompactList}\small\item\em Play a particular sound effect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages sound and music for the game. Also Provides methods to play different sound effects. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sound_manager_a92850e5896fef1d8529fb26a057d1e15}\label{class_sound_manager_a92850e5896fef1d8529fb26a057d1e15}} 
+\index{SoundManager@{SoundManager}!SoundManager@{SoundManager}}
+\index{SoundManager@{SoundManager}!SoundManager@{SoundManager}}
+\subsubsection{\texorpdfstring{SoundManager()}{SoundManager()}}
+{\footnotesize\ttfamily Sound\+Manager\+::\+Sound\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{game\+State }\end{DoxyParamCaption})}
+
+
+
+Construct a new Sound Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & Pointer to the struct that represents game\textquotesingle{}s state \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sound_manager_a80e41108d739852c94c563d3f96c7cd1}\label{class_sound_manager_a80e41108d739852c94c563d3f96c7cd1}} 
+\index{SoundManager@{SoundManager}!playBgMusic@{playBgMusic}}
+\index{playBgMusic@{playBgMusic}!SoundManager@{SoundManager}}
+\subsubsection{\texorpdfstring{playBgMusic()}{playBgMusic()}}
+{\footnotesize\ttfamily void Sound\+Manager\+::play\+Bg\+Music (\begin{DoxyParamCaption}\item[{int}]{loop }\end{DoxyParamCaption})}
+
+
+
+Starts playing background game music. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loop} & Should the music loop? If yes pass 1 else 0. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sound_manager_a968f3c4811334fffe0f97809e7065722}\label{class_sound_manager_a968f3c4811334fffe0f97809e7065722}} 
+\index{SoundManager@{SoundManager}!playSound@{playSound}}
+\index{playSound@{playSound}!SoundManager@{SoundManager}}
+\subsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily void Sound\+Manager\+::play\+Sound (\begin{DoxyParamCaption}\item[{int}]{sfx\+Id,  }\item[{int}]{freq }\end{DoxyParamCaption})}
+
+
+
+Play a particular sound effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sfx\+Id} & ID of sound effect that has to played \\
+\hline
+{\em freq} & Frequency of the sound \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sound_manager_aaaf5f2a309aef452b8f3b749bce66698}\label{class_sound_manager_aaaf5f2a309aef452b8f3b749bce66698}} 
+\index{SoundManager@{SoundManager}!stopBgMusic@{stopBgMusic}}
+\index{stopBgMusic@{stopBgMusic}!SoundManager@{SoundManager}}
+\subsubsection{\texorpdfstring{stopBgMusic()}{stopBgMusic()}}
+{\footnotesize\ttfamily void Sound\+Manager\+::stop\+Bg\+Music (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stops the background game music. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Sound\+Manager.\+h\item 
+Pocket\+Trivia/Sound\+Manager.\+cpp\end{DoxyCompactItemize}

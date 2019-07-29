@@ -1,0 +1,77 @@
+\hypertarget{class_settings_menu}{}\section{Settings\+Menu Class Reference}
+\label{class_settings_menu}\index{SettingsMenu@{SettingsMenu}}
+
+
+This class contains function related to diplaying the Settings Menu and handling the events for it.  
+
+
+
+
+{\ttfamily \#include $<$Settings\+Menu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_settings_menu_a562e5ba69dd8158e08e3287adaa8468e}{Settings\+Menu}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_settings_menu}{Settings\+Menu}} object that would be used to display the Settings menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_settings_menu_ac2abb1dcd62821fdd7cdcdfa28d634c3}{$\sim$\+Settings\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_settings_menu}{Settings\+Menu}} struct and performs the required clean-\/up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_settings_menu_a5df9575a1e6e76b4159b417e4f66b222}{show\+Settings\+Menu}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws Settings menu on to the buffer passed as an arguement and also handles mouse click events for the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Settings Menu and handling the events for it. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_settings_menu_a562e5ba69dd8158e08e3287adaa8468e}\label{class_settings_menu_a562e5ba69dd8158e08e3287adaa8468e}} 
+\index{SettingsMenu@{SettingsMenu}!SettingsMenu@{SettingsMenu}}
+\index{SettingsMenu@{SettingsMenu}!SettingsMenu@{SettingsMenu}}
+\subsubsection{\texorpdfstring{SettingsMenu()}{SettingsMenu()}}
+{\footnotesize\ttfamily Settings\+Menu\+::\+Settings\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_settings_menu}{Settings\+Menu}} object that would be used to display the Settings menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_settings_menu_ac2abb1dcd62821fdd7cdcdfa28d634c3}\label{class_settings_menu_ac2abb1dcd62821fdd7cdcdfa28d634c3}} 
+\index{SettingsMenu@{SettingsMenu}!````~SettingsMenu@{$\sim$SettingsMenu}}
+\index{````~SettingsMenu@{$\sim$SettingsMenu}!SettingsMenu@{SettingsMenu}}
+\subsubsection{\texorpdfstring{$\sim$SettingsMenu()}{~SettingsMenu()}}
+{\footnotesize\ttfamily Settings\+Menu\+::$\sim$\+Settings\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_settings_menu}{Settings\+Menu}} struct and performs the required clean-\/up. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_settings_menu_a5df9575a1e6e76b4159b417e4f66b222}\label{class_settings_menu_a5df9575a1e6e76b4159b417e4f66b222}} 
+\index{SettingsMenu@{SettingsMenu}!showSettingsMenu@{showSettingsMenu}}
+\index{showSettingsMenu@{showSettingsMenu}!SettingsMenu@{SettingsMenu}}
+\subsubsection{\texorpdfstring{showSettingsMenu()}{showSettingsMenu()}}
+{\footnotesize\ttfamily void Settings\+Menu\+::show\+Settings\+Menu (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws Settings menu on to the buffer passed as an arguement and also handles mouse click events for the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the Settings screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/menus/Settings\+Menu.\+h\item 
+Pocket\+Trivia/menus/Settings\+Menu.\+cpp\end{DoxyCompactItemize}

@@ -45,7 +45,7 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 	}
 
 
-	if (Utility::inTheBoundingBox(skipIntroButton)) {
+	if (Utility::mouseInTheBoundingBox(skipIntroButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
@@ -57,7 +57,7 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 			return;
 		}
 	}
-	else if (Utility::inTheBoundingBox(okButton)) {
+	else if (Utility::mouseInTheBoundingBox(okButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;

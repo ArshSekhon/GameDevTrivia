@@ -1,8 +1,8 @@
 #include "Utility.h" 
 #include <allegro.h>
 
-namespace Utility {
-	int inTheBoundingBox(BoundingBox box) { 
+namespace Utility { 
+	int mouseInTheBoundingBox(BoundingBox box) { 
 
 			if (mouse_x > box.x && mouse_x<(box.w + box.x) && mouse_y>box.y && mouse_y < (box.y + box.h))
 				return 1;

@@ -1,0 +1,156 @@
+\hypertarget{class_quiz}{}\section{Quiz Class Reference}
+\label{class_quiz}\index{Quiz@{Quiz}}
+
+
+\mbox{\hyperlink{class_quiz}{Quiz}} class that takes in files for question and answer files as input and creates a quiz with N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+Q\+U\+E\+S\+T\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+G\+A\+ME random questions.  
+
+
+
+
+{\ttfamily \#include $<$Quiz.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quiz_a406e76ea2588e0dd0199ef92435241c2}{Quiz}} (const char $\ast$$\ast$questions\+File\+Names, const char $\ast$$\ast$answers\+File\+Names, int count)
+\begin{DoxyCompactList}\small\item\em This constructor allows creation of a new quiz by taking in the names of files containing the questions and answers. It would automatically read those files and create a quiz consisting of random N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+Q\+U\+E\+S\+T\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+G\+A\+ME (see \mbox{\hyperlink{_constants_8h_source}{Constants.\+h}}) questions. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{class_quiz_a2e4f114860239291825a0b7fc8b97316}{get\+Question\+Text}} (int quiz\+Question\+List\+Index)
+\begin{DoxyCompactList}\small\item\em This function allows getting the text for a particular question. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{class_quiz_a87bca63da7123d0c2daca97e57d4032a}{get\+Question\+Option}} (int quiz\+Question\+List\+Index, int option\+Index)
+\begin{DoxyCompactList}\small\item\em This function allows getting the text for a give option for a particular question. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_quiz_a177966a2aa25acd1ca88a293f6b1ad43}{get\+Question\+Answer\+Index}} (int quiz\+Question\+List\+Index)
+\begin{DoxyCompactList}\small\item\em Returns the index of option that is correct answer for a particular question. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{class_quiz_a9889abe5ef272cb557d1b0ada490b070}{get\+Question\+Answer}} (int quiz\+Question\+List\+Index)
+\begin{DoxyCompactList}\small\item\em Returns pointer to the text of the correct option for a particular question. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_quiz_a8be2b23747e3467eafcadd9503f82798}{check\+Question\+Answer}} (int quiz\+Question\+List\+Index, int chosen\+Option)
+\begin{DoxyCompactList}\small\item\em Provides a means to check if a particular option is correct answer for a question. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_quiz}{Quiz}} class that takes in files for question and answer files as input and creates a quiz with N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+Q\+U\+E\+S\+T\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+G\+A\+ME random questions. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_quiz_a406e76ea2588e0dd0199ef92435241c2}\label{class_quiz_a406e76ea2588e0dd0199ef92435241c2}} 
+\index{Quiz@{Quiz}!Quiz@{Quiz}}
+\index{Quiz@{Quiz}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{Quiz()}{Quiz()}}
+{\footnotesize\ttfamily Quiz\+::\+Quiz (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{questions\+File\+Names,  }\item[{const char $\ast$$\ast$}]{answers\+File\+Names,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+This constructor allows creation of a new quiz by taking in the names of files containing the questions and answers. It would automatically read those files and create a quiz consisting of random N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+Q\+U\+E\+S\+T\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+G\+A\+ME (see \mbox{\hyperlink{_constants_8h_source}{Constants.\+h}}) questions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em questions\+File\+Names} & Pointer to array containing names of the files containing the questions that would be used to prepare the quiz. (Important! The question and corresponding answer files should have same position in the arrays) \\
+\hline
+{\em answers\+File\+Names} & Pointer to array containing names of the files containing the answers that would be used to prepare the quiz. (Important! The question and corresponding answer files should have same position in the arrays) \\
+\hline
+{\em count} & Number of files being used. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_quiz_a8be2b23747e3467eafcadd9503f82798}\label{class_quiz_a8be2b23747e3467eafcadd9503f82798}} 
+\index{Quiz@{Quiz}!checkQuestionAnswer@{checkQuestionAnswer}}
+\index{checkQuestionAnswer@{checkQuestionAnswer}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{checkQuestionAnswer()}{checkQuestionAnswer()}}
+{\footnotesize\ttfamily int Quiz\+::check\+Question\+Answer (\begin{DoxyParamCaption}\item[{int}]{quiz\+Question\+List\+Index,  }\item[{int}]{chosen\+Option }\end{DoxyParamCaption})}
+
+
+
+Provides a means to check if a particular option is correct answer for a question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quiz\+Question\+List\+Index} & Index of the question. \\
+\hline
+{\em chosen\+Option} & Index of the option you wish to check if is the correct answer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean that tells if the passed index belonged to correct answer or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_quiz_a9889abe5ef272cb557d1b0ada490b070}\label{class_quiz_a9889abe5ef272cb557d1b0ada490b070}} 
+\index{Quiz@{Quiz}!getQuestionAnswer@{getQuestionAnswer}}
+\index{getQuestionAnswer@{getQuestionAnswer}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{getQuestionAnswer()}{getQuestionAnswer()}}
+{\footnotesize\ttfamily char $\ast$ Quiz\+::get\+Question\+Answer (\begin{DoxyParamCaption}\item[{int}]{quiz\+Question\+List\+Index }\end{DoxyParamCaption})}
+
+
+
+Returns pointer to the text of the correct option for a particular question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quiz\+Question\+List\+Index} & Index of the question.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the text of the correct option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_quiz_a177966a2aa25acd1ca88a293f6b1ad43}\label{class_quiz_a177966a2aa25acd1ca88a293f6b1ad43}} 
+\index{Quiz@{Quiz}!getQuestionAnswerIndex@{getQuestionAnswerIndex}}
+\index{getQuestionAnswerIndex@{getQuestionAnswerIndex}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{getQuestionAnswerIndex()}{getQuestionAnswerIndex()}}
+{\footnotesize\ttfamily int Quiz\+::get\+Question\+Answer\+Index (\begin{DoxyParamCaption}\item[{int}]{quiz\+Question\+List\+Index }\end{DoxyParamCaption})}
+
+
+
+Returns the index of option that is correct answer for a particular question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quiz\+Question\+List\+Index} & Index of the question.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of option that is correct answer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_quiz_a87bca63da7123d0c2daca97e57d4032a}\label{class_quiz_a87bca63da7123d0c2daca97e57d4032a}} 
+\index{Quiz@{Quiz}!getQuestionOption@{getQuestionOption}}
+\index{getQuestionOption@{getQuestionOption}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{getQuestionOption()}{getQuestionOption()}}
+{\footnotesize\ttfamily char $\ast$ Quiz\+::get\+Question\+Option (\begin{DoxyParamCaption}\item[{int}]{quiz\+Question\+List\+Index,  }\item[{int}]{option\+Index }\end{DoxyParamCaption})}
+
+
+
+This function allows getting the text for a give option for a particular question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quiz\+Question\+List\+Index} & Index of the question. \\
+\hline
+{\em option\+Index} & Index of the option you wish to get the text for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the option text string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_quiz_a2e4f114860239291825a0b7fc8b97316}\label{class_quiz_a2e4f114860239291825a0b7fc8b97316}} 
+\index{Quiz@{Quiz}!getQuestionText@{getQuestionText}}
+\index{getQuestionText@{getQuestionText}!Quiz@{Quiz}}
+\subsubsection{\texorpdfstring{getQuestionText()}{getQuestionText()}}
+{\footnotesize\ttfamily char $\ast$ Quiz\+::get\+Question\+Text (\begin{DoxyParamCaption}\item[{int}]{quiz\+Question\+List\+Index }\end{DoxyParamCaption})}
+
+
+
+This function allows getting the text for a particular question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quiz\+Question\+List\+Index} & Index of the question. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the question text string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/entities/Quiz.\+h\item 
+Pocket\+Trivia/entities/Quiz.\+cpp\end{DoxyCompactItemize}

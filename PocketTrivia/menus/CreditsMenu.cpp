@@ -44,7 +44,7 @@ void CreditsMenu::showCreditsScreen(BITMAP* buffer) {
 	}
 
 
-	if (Utility::inTheBoundingBox(backButton)) {
+	if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;

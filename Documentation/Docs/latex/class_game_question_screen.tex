@@ -1,0 +1,69 @@
+\hypertarget{class_game_question_screen}{}\section{Game\+Question\+Screen Class Reference}
+\label{class_game_question_screen}\index{GameQuestionScreen@{GameQuestionScreen}}
+
+
+This class contains function related to diplaying a question screen for the quiz, handles event for the same and also shows the result for these questions after user select their answer. This visually the most important screen and constitutes major part of the game.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Question\+Screen.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_question_screen_a85740c09f0dd41c8fdece027059e6974}{Game\+Question\+Screen}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$game\+State, \mbox{\hyperlink{class_sound_manager}{Sound\+Manager}} $\ast$sound\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new Game Question Screen object used to display a questions screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_question_screen_a78a1bda4b73ba96ea09d04ddd378e60d}{show\+Question\+Screen}} (B\+I\+T\+M\+AP $\ast$buffer, \mbox{\hyperlink{class_quiz}{Quiz}} $\ast$quiz)
+\begin{DoxyCompactList}\small\item\em Function draws a question screen for the quiz to the buffer , handles event for the same and also shows the result for these questions after user select their answer and finally displays the results at the end of the game. This is the most important screen and constitutes major part of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying a question screen for the quiz, handles event for the same and also shows the result for these questions after user select their answer. This visually the most important screen and constitutes major part of the game. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_question_screen_a85740c09f0dd41c8fdece027059e6974}\label{class_game_question_screen_a85740c09f0dd41c8fdece027059e6974}} 
+\index{GameQuestionScreen@{GameQuestionScreen}!GameQuestionScreen@{GameQuestionScreen}}
+\index{GameQuestionScreen@{GameQuestionScreen}!GameQuestionScreen@{GameQuestionScreen}}
+\subsubsection{\texorpdfstring{GameQuestionScreen()}{GameQuestionScreen()}}
+{\footnotesize\ttfamily Game\+Question\+Screen\+::\+Game\+Question\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{game\+State,  }\item[{\mbox{\hyperlink{class_sound_manager}{Sound\+Manager}} $\ast$}]{sound\+Manager }\end{DoxyParamCaption})}
+
+
+
+Construct a new Game Question Screen object used to display a questions screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & Pointer to the game state struct that is shared by the entire game. \\
+\hline
+{\em sound\+Manager} & Pointer to sound\+Manager object that is used to play sounds. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_question_screen_a78a1bda4b73ba96ea09d04ddd378e60d}\label{class_game_question_screen_a78a1bda4b73ba96ea09d04ddd378e60d}} 
+\index{GameQuestionScreen@{GameQuestionScreen}!showQuestionScreen@{showQuestionScreen}}
+\index{showQuestionScreen@{showQuestionScreen}!GameQuestionScreen@{GameQuestionScreen}}
+\subsubsection{\texorpdfstring{showQuestionScreen()}{showQuestionScreen()}}
+{\footnotesize\ttfamily void Game\+Question\+Screen\+::show\+Question\+Screen (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{class_quiz}{Quiz}} $\ast$}]{quiz }\end{DoxyParamCaption})}
+
+
+
+Function draws a question screen for the quiz to the buffer , handles event for the same and also shows the result for these questions after user select their answer and finally displays the results at the end of the game. This is the most important screen and constitutes major part of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the buffer where the question screen has to be drawn upon. \\
+\hline
+{\em quiz} & Pointer to the quiz object that contains the questions to be used in \mbox{\hyperlink{class_quiz}{Quiz}}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Game\+Question\+Screen.\+h\item 
+Pocket\+Trivia/Game\+Question\+Screen.\+cpp\end{DoxyCompactItemize}

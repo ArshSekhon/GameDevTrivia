@@ -1,0 +1,79 @@
+\hypertarget{class_g_f_x_settings_menu}{}\section{G\+F\+X\+Settings\+Menu Class Reference}
+\label{class_g_f_x_settings_menu}\index{GFXSettingsMenu@{GFXSettingsMenu}}
+
+
+This class contains function related to diplaying the Graphics Settings screen, handling the events for the screen and managing and appling the graphic settings.  
+
+
+
+
+{\ttfamily \#include $<$G\+F\+X\+Settings\+Menu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_f_x_settings_menu_ac76b53d51d1f1c693684fb25653f6af1}{G\+F\+X\+Settings\+Menu}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs, \mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$config\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_g_f_x_settings_menu}{G\+F\+X\+Settings\+Menu}} object that would be used to create Graphics menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_f_x_settings_menu_aa2b91fbdb68ec4bf0ed8816ad7b845ad}{show\+Gfx\+Menu}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws graphics settings menu on to the buffer passed as an arguement and also handles mouse clicks for the graphics settings menu. It also works with \mbox{\hyperlink{class_config_manager}{Config\+Manager}} to load and save Graphics related setting and apply them to the game when apply button is pressed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_f_x_settings_menu_a59316167f08ca2dc6ca2ebfafec63e2f}{$\sim$\+G\+F\+X\+Settings\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_g_f_x_settings_menu}{G\+F\+X\+Settings\+Menu}} object and performs the required clean-\/up. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Graphics Settings screen, handling the events for the screen and managing and appling the graphic settings. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_f_x_settings_menu_ac76b53d51d1f1c693684fb25653f6af1}\label{class_g_f_x_settings_menu_ac76b53d51d1f1c693684fb25653f6af1}} 
+\index{GFXSettingsMenu@{GFXSettingsMenu}!GFXSettingsMenu@{GFXSettingsMenu}}
+\index{GFXSettingsMenu@{GFXSettingsMenu}!GFXSettingsMenu@{GFXSettingsMenu}}
+\subsubsection{\texorpdfstring{GFXSettingsMenu()}{GFXSettingsMenu()}}
+{\footnotesize\ttfamily G\+F\+X\+Settings\+Menu\+::\+G\+F\+X\+Settings\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs,  }\item[{\mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$}]{config\+Manager }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_g_f_x_settings_menu}{G\+F\+X\+Settings\+Menu}} object that would be used to create Graphics menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+{\em config\+Manager} & Pointer to the \mbox{\hyperlink{class_config_manager}{Config\+Manager}} object that would be used by Graphics Menu to load and save the configurations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_g_f_x_settings_menu_a59316167f08ca2dc6ca2ebfafec63e2f}\label{class_g_f_x_settings_menu_a59316167f08ca2dc6ca2ebfafec63e2f}} 
+\index{GFXSettingsMenu@{GFXSettingsMenu}!````~GFXSettingsMenu@{$\sim$GFXSettingsMenu}}
+\index{````~GFXSettingsMenu@{$\sim$GFXSettingsMenu}!GFXSettingsMenu@{GFXSettingsMenu}}
+\subsubsection{\texorpdfstring{$\sim$GFXSettingsMenu()}{~GFXSettingsMenu()}}
+{\footnotesize\ttfamily G\+F\+X\+Settings\+Menu\+::$\sim$\+G\+F\+X\+Settings\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_g_f_x_settings_menu}{G\+F\+X\+Settings\+Menu}} object and performs the required clean-\/up. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_f_x_settings_menu_aa2b91fbdb68ec4bf0ed8816ad7b845ad}\label{class_g_f_x_settings_menu_aa2b91fbdb68ec4bf0ed8816ad7b845ad}} 
+\index{GFXSettingsMenu@{GFXSettingsMenu}!showGfxMenu@{showGfxMenu}}
+\index{showGfxMenu@{showGfxMenu}!GFXSettingsMenu@{GFXSettingsMenu}}
+\subsubsection{\texorpdfstring{showGfxMenu()}{showGfxMenu()}}
+{\footnotesize\ttfamily int G\+F\+X\+Settings\+Menu\+::show\+Gfx\+Menu (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws graphics settings menu on to the buffer passed as an arguement and also handles mouse clicks for the graphics settings menu. It also works with \mbox{\hyperlink{class_config_manager}{Config\+Manager}} to load and save Graphics related setting and apply them to the game when apply button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the Graphic settings screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/menus/G\+F\+X\+Settings\+Menu.\+h\item 
+Pocket\+Trivia/menus/G\+F\+X\+Settings\+Menu.\+cpp\end{DoxyCompactItemize}

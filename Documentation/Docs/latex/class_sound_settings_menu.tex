@@ -1,0 +1,79 @@
+\hypertarget{class_sound_settings_menu}{}\section{Sound\+Settings\+Menu Class Reference}
+\label{class_sound_settings_menu}\index{SoundSettingsMenu@{SoundSettingsMenu}}
+
+
+This class contains function related to diplaying the Sound related Settings screen, handling the events for the screen and managing and appling the Sound related settings.  
+
+
+
+
+{\ttfamily \#include $<$Sound\+Settings\+Menu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sound_settings_menu_ac1858f00f1b84e7dea55bf98b9eab011}{Sound\+Settings\+Menu}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs, \mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$config\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_sound_settings_menu}{Sound\+Settings\+Menu}} object that would be used to create Sound related menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sound_settings_menu_a84416928391210116c46bbb1deddf035}{$\sim$\+Sound\+Settings\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_sound_settings_menu}{Sound\+Settings\+Menu}} object and performs the required clean-\/up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sound_settings_menu_a3ac0e1463e67b8165cfd4491a251e5fa}{show\+Sound\+Settings\+Menu}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws Sound related settings menu on to the buffer passed as an arguement and also handles mouse clicks for the Sound related settings menu. It also works with \mbox{\hyperlink{class_config_manager}{Config\+Manager}} to load and save Sound related related setting and apply them to the game when apply button is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Sound related Settings screen, handling the events for the screen and managing and appling the Sound related settings. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sound_settings_menu_ac1858f00f1b84e7dea55bf98b9eab011}\label{class_sound_settings_menu_ac1858f00f1b84e7dea55bf98b9eab011}} 
+\index{SoundSettingsMenu@{SoundSettingsMenu}!SoundSettingsMenu@{SoundSettingsMenu}}
+\index{SoundSettingsMenu@{SoundSettingsMenu}!SoundSettingsMenu@{SoundSettingsMenu}}
+\subsubsection{\texorpdfstring{SoundSettingsMenu()}{SoundSettingsMenu()}}
+{\footnotesize\ttfamily Sound\+Settings\+Menu\+::\+Sound\+Settings\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs,  }\item[{\mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$}]{config\+Manager }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_sound_settings_menu}{Sound\+Settings\+Menu}} object that would be used to create Sound related menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+{\em config\+Manager} & Pointer to the \mbox{\hyperlink{class_config_manager}{Config\+Manager}} object that would be used by Sound related Menu to load and save the configurations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sound_settings_menu_a84416928391210116c46bbb1deddf035}\label{class_sound_settings_menu_a84416928391210116c46bbb1deddf035}} 
+\index{SoundSettingsMenu@{SoundSettingsMenu}!````~SoundSettingsMenu@{$\sim$SoundSettingsMenu}}
+\index{````~SoundSettingsMenu@{$\sim$SoundSettingsMenu}!SoundSettingsMenu@{SoundSettingsMenu}}
+\subsubsection{\texorpdfstring{$\sim$SoundSettingsMenu()}{~SoundSettingsMenu()}}
+{\footnotesize\ttfamily Sound\+Settings\+Menu\+::$\sim$\+Sound\+Settings\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_sound_settings_menu}{Sound\+Settings\+Menu}} object and performs the required clean-\/up. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sound_settings_menu_a3ac0e1463e67b8165cfd4491a251e5fa}\label{class_sound_settings_menu_a3ac0e1463e67b8165cfd4491a251e5fa}} 
+\index{SoundSettingsMenu@{SoundSettingsMenu}!showSoundSettingsMenu@{showSoundSettingsMenu}}
+\index{showSoundSettingsMenu@{showSoundSettingsMenu}!SoundSettingsMenu@{SoundSettingsMenu}}
+\subsubsection{\texorpdfstring{showSoundSettingsMenu()}{showSoundSettingsMenu()}}
+{\footnotesize\ttfamily void Sound\+Settings\+Menu\+::show\+Sound\+Settings\+Menu (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws Sound related settings menu on to the buffer passed as an arguement and also handles mouse clicks for the Sound related settings menu. It also works with \mbox{\hyperlink{class_config_manager}{Config\+Manager}} to load and save Sound related related setting and apply them to the game when apply button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the Sound related settings screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/menus/Sound\+Settings\+Menu.\+h\item 
+Pocket\+Trivia/menus/Sound\+Settings\+Menu.\+cpp\end{DoxyCompactItemize}

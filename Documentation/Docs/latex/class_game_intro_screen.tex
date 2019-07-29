@@ -1,0 +1,67 @@
+\hypertarget{class_game_intro_screen}{}\section{Game\+Intro\+Screen Class Reference}
+\label{class_game_intro_screen}\index{GameIntroScreen@{GameIntroScreen}}
+
+
+This class contains function related to diplaying the Game Intro screen, handling the events for the screen and managing and appling the Game Intro.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Intro\+Screen.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_intro_screen_aa2093cbccab8074dee711e780482e9e2}{Game\+Intro\+Screen}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$game\+State, \mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$config\+Manager)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_game_intro_screen}{Game\+Intro\+Screen}} object that would be used to show an intro screen when game start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_intro_screen_a86a225012009cea900efe9010e7520f5}{show\+Intro\+Screen}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws game intro screen on to the buffer passed as an arguement and also handles mouse click events for the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Game Intro screen, handling the events for the screen and managing and appling the Game Intro. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_intro_screen_aa2093cbccab8074dee711e780482e9e2}\label{class_game_intro_screen_aa2093cbccab8074dee711e780482e9e2}} 
+\index{GameIntroScreen@{GameIntroScreen}!GameIntroScreen@{GameIntroScreen}}
+\index{GameIntroScreen@{GameIntroScreen}!GameIntroScreen@{GameIntroScreen}}
+\subsubsection{\texorpdfstring{GameIntroScreen()}{GameIntroScreen()}}
+{\footnotesize\ttfamily Game\+Intro\+Screen\+::\+Game\+Intro\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{game\+State,  }\item[{\mbox{\hyperlink{class_config_manager}{Config\+Manager}} $\ast$}]{config\+Manager }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_game_intro_screen}{Game\+Intro\+Screen}} object that would be used to show an intro screen when game start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+{\em config\+Manager} & Pointer to the \mbox{\hyperlink{class_config_manager}{Config\+Manager}} object that would be used to load and save the config related to game intro screen \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_intro_screen_a86a225012009cea900efe9010e7520f5}\label{class_game_intro_screen_a86a225012009cea900efe9010e7520f5}} 
+\index{GameIntroScreen@{GameIntroScreen}!showIntroScreen@{showIntroScreen}}
+\index{showIntroScreen@{showIntroScreen}!GameIntroScreen@{GameIntroScreen}}
+\subsubsection{\texorpdfstring{showIntroScreen()}{showIntroScreen()}}
+{\footnotesize\ttfamily void Game\+Intro\+Screen\+::show\+Intro\+Screen (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws game intro screen on to the buffer passed as an arguement and also handles mouse click events for the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the game intro screen screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Game\+Intro\+Screen.\+h\item 
+Pocket\+Trivia/Game\+Intro\+Screen.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,254 @@
+\hypertarget{namespace_utility}{}\section{Utility Namespace Reference}
+\label{namespace_utility}\index{Utility@{Utility}}
+
+
+\mbox{\hyperlink{namespace_utility}{Utility}} functions related to UI of the game.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_utility_abf218593a2688a7a97fcdd7a8ad33b18}{mouse\+In\+The\+Bounding\+Box}} (\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} box)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is inside a Bounding Box. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{namespace_utility_ae356e0fbb87662e2c6b20cab319cbed7}{textout\+\_\+magnified}} (B\+I\+T\+M\+AP $\ast$bmp, F\+O\+NT $\ast$font, int x, int y, double multiplier, const char $\ast$msg, int color, int bg)
+\begin{DoxyCompactList}\small\item\em Draws a scaled version of text on the bitmap. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{namespace_utility_aa945341a76a7ea64a3e4a472a20c8d45}{textout\+\_\+centre\+\_\+magnified}} (B\+I\+T\+M\+AP $\ast$bmp, F\+O\+NT $\ast$font, int x, int y, double multiplier, const char $\ast$msg, int color, int bg)
+\begin{DoxyCompactList}\small\item\em Draws a centered and scaled version of text on the bitmap. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{namespace_utility_ad1e2e7751248795478a0d207430bbd6c}{create\+\_\+arrow\+\_\+left}} (B\+I\+T\+M\+AP $\ast$buffer, int x, int y, int size, int color)
+\begin{DoxyCompactList}\small\item\em Draws an arrow pointing left. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} \mbox{\hyperlink{namespace_utility_a8f88e0af8573389c222b7bbb4873abca}{create\+\_\+arrow\+\_\+right}} (B\+I\+T\+M\+AP $\ast$buffer, int x, int y, int size, int color)
+\begin{DoxyCompactList}\small\item\em Draws an arrow pointing right. \end{DoxyCompactList}\item 
+D\+I\+A\+L\+O\+G\+\_\+\+P\+L\+A\+Y\+ER $\ast$ \mbox{\hyperlink{namespace_utility_a48d4a30c00ec5a7cfe605b98f3e3fbea}{draw\+\_\+wrapping\+\_\+text}} (B\+I\+T\+M\+AP $\ast$bmp, F\+O\+NT $\ast$font\+For\+Text, D\+I\+A\+L\+OG $\ast$d, char $\ast$str, int x, int y, int w, int h, int color)
+\begin{DoxyCompactList}\small\item\em Draws an uneditable text area on screen with a scrollbar allowing to fit long text on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_utility_ade99ae97d8a1df577174b699ef95f8d5}{create\+\_\+list}} (B\+I\+T\+M\+AP $\ast$bmp, F\+O\+NT $\ast$font\+For\+Text, D\+I\+A\+L\+OG $\ast$d, void $\ast$list\+Getter, char $\ast$selected\+Elem, int x, int y, int w, int h, int color)
+\begin{DoxyCompactList}\small\item\em Create a selectable list of elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_utility_a516b74172dcbf11c77b00b94b5cf130b}{draw\+\_\+button}} (B\+I\+T\+M\+AP $\ast$buffer, B\+I\+T\+M\+AP $\ast$bitmap\+Bg, \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} box)
+\begin{DoxyCompactList}\small\item\em Draws button on a bitmap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{namespace_utility}{Utility}} functions related to UI of the game. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_utility_ad1e2e7751248795478a0d207430bbd6c}\label{namespace_utility_ad1e2e7751248795478a0d207430bbd6c}} 
+\index{Utility@{Utility}!create\_arrow\_left@{create\_arrow\_left}}
+\index{create\_arrow\_left@{create\_arrow\_left}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{create\_arrow\_left()}{create\_arrow\_left()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Utility\+::create\+\_\+arrow\+\_\+left (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{size,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws an arrow pointing left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Bitmap where arrow has to be drawn upon \\
+\hline
+{\em x} & X-\/\+Coordinate of the arrow \\
+\hline
+{\em y} & Y-\/\+Coordinate of the arrow \\
+\hline
+{\em size} & Size of the arrow in pixels \\
+\hline
+{\em color} & Color(\+Allegro Colors) of the arrow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Bounding box for the arrow 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_utility_a8f88e0af8573389c222b7bbb4873abca}\label{namespace_utility_a8f88e0af8573389c222b7bbb4873abca}} 
+\index{Utility@{Utility}!create\_arrow\_right@{create\_arrow\_right}}
+\index{create\_arrow\_right@{create\_arrow\_right}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{create\_arrow\_right()}{create\_arrow\_right()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Utility\+::create\+\_\+arrow\+\_\+right (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{size,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws an arrow pointing right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Bitmap where arrow has to be drawn upon \\
+\hline
+{\em x} & X-\/\+Coordinate of the arrow \\
+\hline
+{\em y} & Y-\/\+Coordinate of the arrow \\
+\hline
+{\em size} & Size of the arrow in pixels \\
+\hline
+{\em color} & Color(\+Allegro Colors) of the arrow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Bounding box for the arrow 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_utility_ade99ae97d8a1df577174b699ef95f8d5}\label{namespace_utility_ade99ae97d8a1df577174b699ef95f8d5}} 
+\index{Utility@{Utility}!create\_list@{create\_list}}
+\index{create\_list@{create\_list}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{create\_list()}{create\_list()}}
+{\footnotesize\ttfamily void Utility\+::create\+\_\+list (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{bmp,  }\item[{F\+O\+NT $\ast$}]{font\+For\+Text,  }\item[{D\+I\+A\+L\+OG $\ast$}]{d,  }\item[{void $\ast$}]{list\+Getter,  }\item[{char $\ast$}]{selected\+Elem,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
+
+
+Create a selectable list of elements. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em bmp} & Bitmap to draw the list upon \\
+\hline
+ & {\em font\+For\+Text} & Pointer to the font to be used for the list \\
+\hline
+ & {\em d} & Dialog for the creation of the list \\
+\hline
+ & {\em list\+Getter} & Getter method for the list items \\
+\hline
+\mbox{\texttt{ out}}  & {\em selected\+Elem} & Pointer to the list of selected elements \\
+\hline
+ & {\em x} & X-\/\+Coordinate where list has to be positioned \\
+\hline
+ & {\em y} & Y-\/\+Coordinate where list has to be positioned \\
+\hline
+ & {\em w} & Width of the list in pixels \\
+\hline
+ & {\em h} & Height of the list in pixels \\
+\hline
+ & {\em color} & Color(\+Allegro Color) of the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_utility_a516b74172dcbf11c77b00b94b5cf130b}\label{namespace_utility_a516b74172dcbf11c77b00b94b5cf130b}} 
+\index{Utility@{Utility}!draw\_button@{draw\_button}}
+\index{draw\_button@{draw\_button}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{draw\_button()}{draw\_button()}}
+{\footnotesize\ttfamily void Utility\+::draw\+\_\+button (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer,  }\item[{B\+I\+T\+M\+AP $\ast$}]{bitmap\+Bg,  }\item[{\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}}}]{box }\end{DoxyParamCaption})}
+
+
+
+Draws button on a bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Bitmap where button has to be drawn \\
+\hline
+{\em bitmap\+Bg} & Bitmap to be used as the button background \\
+\hline
+{\em box} & Bounding box representing the position and size of the button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_utility_a48d4a30c00ec5a7cfe605b98f3e3fbea}\label{namespace_utility_a48d4a30c00ec5a7cfe605b98f3e3fbea}} 
+\index{Utility@{Utility}!draw\_wrapping\_text@{draw\_wrapping\_text}}
+\index{draw\_wrapping\_text@{draw\_wrapping\_text}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{draw\_wrapping\_text()}{draw\_wrapping\_text()}}
+{\footnotesize\ttfamily D\+I\+A\+L\+O\+G\+\_\+\+P\+L\+A\+Y\+ER $\ast$ Utility\+::draw\+\_\+wrapping\+\_\+text (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{bmp,  }\item[{F\+O\+NT $\ast$}]{font\+For\+Text,  }\item[{D\+I\+A\+L\+OG $\ast$}]{d,  }\item[{char $\ast$}]{str,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws an uneditable text area on screen with a scrollbar allowing to fit long text on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bmp} & Bitmap where the text area has to be drawn \\
+\hline
+{\em font\+For\+Text} & Font to be used for the contents of the text area \\
+\hline
+{\em d} & Dialog to use for the text area \\
+\hline
+{\em str} & String that has to be written to the text area \\
+\hline
+{\em x} & X-\/\+Coordinate where text area has to be positioned \\
+\hline
+{\em y} & Y-\/\+Coordinate where text area has to be positioned \\
+\hline
+{\em w} & Width of the text area in pixels \\
+\hline
+{\em h} & Height of the text area in pixels \\
+\hline
+{\em color} & Color(\+Allegro Colors) to use for the text area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+I\+A\+L\+O\+G\+\_\+\+P\+L\+A\+Y\+ER Pointer to Dialog player object for the created textarea 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_utility_abf218593a2688a7a97fcdd7a8ad33b18}\label{namespace_utility_abf218593a2688a7a97fcdd7a8ad33b18}} 
+\index{Utility@{Utility}!mouseInTheBoundingBox@{mouseInTheBoundingBox}}
+\index{mouseInTheBoundingBox@{mouseInTheBoundingBox}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{mouseInTheBoundingBox()}{mouseInTheBoundingBox()}}
+{\footnotesize\ttfamily int Utility\+::mouse\+In\+The\+Bounding\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}}}]{box }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is inside a Bounding Box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box} & \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} to be checked for mouse over \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the mouse is in the bounding box and 0 if it outside 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_utility_aa945341a76a7ea64a3e4a472a20c8d45}\label{namespace_utility_aa945341a76a7ea64a3e4a472a20c8d45}} 
+\index{Utility@{Utility}!textout\_centre\_magnified@{textout\_centre\_magnified}}
+\index{textout\_centre\_magnified@{textout\_centre\_magnified}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{textout\_centre\_magnified()}{textout\_centre\_magnified()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Utility\+::textout\+\_\+centre\+\_\+magnified (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{bmp,  }\item[{F\+O\+NT $\ast$}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{multiplier,  }\item[{const char $\ast$}]{msg,  }\item[{int}]{color,  }\item[{int}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draws a centered and scaled version of text on the bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bmp} & Bitmap where the text has to be drawn upon \\
+\hline
+{\em font} & Font that has to be used for the Text \\
+\hline
+{\em x} & X-\/\+Coordinate where text has to be centered \\
+\hline
+{\em y} & Y-\/\+Coordinate where text has to be centered \\
+\hline
+{\em multiplier} & Scale of the text \\
+\hline
+{\em msg} & Pointer to the string that has to be printed on screen \\
+\hline
+{\em color} & Color(\+Allegro Colors) of the text \\
+\hline
+{\em bg} & Color(\+Allegro Colors) of background \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} The bounding box for the text 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_utility_ae356e0fbb87662e2c6b20cab319cbed7}\label{namespace_utility_ae356e0fbb87662e2c6b20cab319cbed7}} 
+\index{Utility@{Utility}!textout\_magnified@{textout\_magnified}}
+\index{textout\_magnified@{textout\_magnified}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{textout\_magnified()}{textout\_magnified()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} Utility\+::textout\+\_\+magnified (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{bmp,  }\item[{F\+O\+NT $\ast$}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{multiplier,  }\item[{const char $\ast$}]{msg,  }\item[{int}]{color,  }\item[{int}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draws a scaled version of text on the bitmap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bmp} & Bitmap where the text has to be drawn upon \\
+\hline
+{\em font} & Font that has to be used for the Text \\
+\hline
+{\em x} & X-\/\+Coordinate where text has to be placed \\
+\hline
+{\em y} & Y-\/\+Coordinate where text has to be placed \\
+\hline
+{\em multiplier} & Scale of the text \\
+\hline
+{\em msg} & Pointer to the string that has to be printed on screen \\
+\hline
+{\em color} & Color(\+Allegro Colors) of the text \\
+\hline
+{\em bg} & Color(\+Allegro Colors) of background \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_bounding_box}{Bounding\+Box}} The bounding box for the text 
+\end{DoxyReturn}

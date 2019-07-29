@@ -1,11 +1,6 @@
 #include "ConfigManager.h"
 #include <allegro.h>
 
-/*
-load_config
-Accepts: Configuration File Name
-Loads config from config file into globals
-*/
 void ConfigManager::load_config(const char* configFile, GameState* gs) {
 	push_config_state();
 	set_config_file(configFile);
@@ -25,11 +20,6 @@ void ConfigManager::load_config(const char* configFile, GameState* gs) {
 
 }
 
-/*
-write_config
-Accepts: Configuration File Name
-Writes config into config file from globals
-*/
 void ConfigManager::save_config(const char* configFile, GameState* gs) {
 	push_config_state();
 	set_config_file(configFile);

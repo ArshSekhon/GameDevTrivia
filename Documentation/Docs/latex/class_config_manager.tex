@@ -1,0 +1,66 @@
+\hypertarget{class_config_manager}{}\section{Config\+Manager Class Reference}
+\label{class_config_manager}\index{ConfigManager@{ConfigManager}}
+
+
+Allows loading and saving config from and to a file, allowing it to persist when the game is closed and re-\/launched.  
+
+
+
+
+{\ttfamily \#include $<$Config\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_config_manager_ab63282f7838464020b7d26bd3bd10e47}{load\+\_\+config}} (const char $\ast$config\+File, \mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs)
+\begin{DoxyCompactList}\small\item\em Loads configuration from the config file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_config_manager_ab7cbb6809061323ec279ddd6a46833df}{save\+\_\+config}} (const char $\ast$config\+File, \mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs)
+\begin{DoxyCompactList}\small\item\em Saves the current game configuration to a configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows loading and saving config from and to a file, allowing it to persist when the game is closed and re-\/launched. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_config_manager_ab63282f7838464020b7d26bd3bd10e47}\label{class_config_manager_ab63282f7838464020b7d26bd3bd10e47}} 
+\index{ConfigManager@{ConfigManager}!load\_config@{load\_config}}
+\index{load\_config@{load\_config}!ConfigManager@{ConfigManager}}
+\subsubsection{\texorpdfstring{load\_config()}{load\_config()}}
+{\footnotesize\ttfamily void Config\+Manager\+::load\+\_\+config (\begin{DoxyParamCaption}\item[{const char $\ast$}]{config\+File,  }\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs }\end{DoxyParamCaption})}
+
+
+
+Loads configuration from the config file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\+File} & Pointer to the name of the configuration file. \\
+\hline
+{\em gs} & Pointer to the \mbox{\hyperlink{struct_game_state}{Game\+State}} struct containing game\textquotesingle{}s existing state. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_config_manager_ab7cbb6809061323ec279ddd6a46833df}\label{class_config_manager_ab7cbb6809061323ec279ddd6a46833df}} 
+\index{ConfigManager@{ConfigManager}!save\_config@{save\_config}}
+\index{save\_config@{save\_config}!ConfigManager@{ConfigManager}}
+\subsubsection{\texorpdfstring{save\_config()}{save\_config()}}
+{\footnotesize\ttfamily void Config\+Manager\+::save\+\_\+config (\begin{DoxyParamCaption}\item[{const char $\ast$}]{config\+File,  }\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs }\end{DoxyParamCaption})}
+
+
+
+Saves the current game configuration to a configuration file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\+File} & Pointer to the name of the configuration file where configuration has to be saved to \\
+\hline
+{\em gs} & Pointer to the \mbox{\hyperlink{struct_game_state}{Game\+State}} struct containing game\textquotesingle{}s existing state. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Config\+Manager.\+h\item 
+Pocket\+Trivia/Config\+Manager.\+cpp\end{DoxyCompactItemize}

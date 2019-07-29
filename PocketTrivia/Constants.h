@@ -1,11 +1,9 @@
 #pragma once
 #define CONFIG_FILENAME "PocketTrivia.cfg"
 
-
 #define NUMBER_OF_QUESTIONS_PER_GAME 10
 
 // GFX RESOLUTIONS
-
 #define GFX_RES_640_X_480 0
 #define GFX_RES_960_X_720 1
 #define GFX_RES_1280_X_960 2
@@ -26,15 +24,11 @@
 #define GAME_SCREEN_RESULTS 9
 #define GAME_SCREEN_CREDITS 10
 
-
 //SOUND EFFECTS
 #define SOUND_CLICK 0
 #define SOUND_CHEERING 1
 #define SOUND_BUZZER 2
 #define SOUND_BOING 3
-
-
-
 
 // Error and Exception codes
 #define EXCEPTION_READING_QUESTION_FILE 101
@@ -46,16 +40,15 @@
 #define ERROR_ALLEGRO_KEYBOARD_INIT 105
 #define ERROR_ALLEGRO_GFX_CHANGE 106
 
-
 // colors
-
 #define COLOR_BG makecol(18,39,34)
 #define COLOR_TEXT makecol(18,39,34)
 #define COLOR_HUD_TEXT makecol(96,57,28)
 
-
-
-
+/**
+ * @brief Struct used to store the state of the game.
+ * 
+ */
 struct GameState {
 
 	int resolution_x;
@@ -86,6 +79,10 @@ struct GameState {
 	int pendingMouseClick;
 };
 
+/**
+ * @brief Struct used to store the Bounds of a control element like button.
+ * 
+ */
 struct BoundingBox {
 	int x;
 	int y;

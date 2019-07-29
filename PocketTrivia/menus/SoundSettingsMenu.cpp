@@ -112,7 +112,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 	clear_bitmap(buffer);
 
 
-	if (Utility::inTheBoundingBox(applyButton)) {
+	if (Utility::mouseInTheBoundingBox(applyButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
@@ -122,7 +122,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	else if (Utility::inTheBoundingBox(backButton)) {
+	else if (Utility::mouseInTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_SETTINGS;
@@ -131,14 +131,14 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	else if (Utility::inTheBoundingBox(soundVolChangeArrows[0]) || Utility::inTheBoundingBox(soundVolChangeArrows[1])) {
+	else if (Utility::mouseInTheBoundingBox(soundVolChangeArrows[0]) || Utility::mouseInTheBoundingBox(soundVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
-			if (Utility::inTheBoundingBox(soundVolChangeArrows[0])) {
+			if (Utility::mouseInTheBoundingBox(soundVolChangeArrows[0])) {
 				if (soundVolume > 0)
 					soundVolume--;
 			}
-			else if (Utility::inTheBoundingBox(soundVolChangeArrows[1])) {
+			else if (Utility::mouseInTheBoundingBox(soundVolChangeArrows[1])) {
 				if (soundVolume < 10)
 					soundVolume++;
 			}
@@ -146,14 +146,14 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(musicVolChangeArrows[0]) || Utility::inTheBoundingBox(musicVolChangeArrows[1])) {
+	else if (Utility::mouseInTheBoundingBox(musicVolChangeArrows[0]) || Utility::mouseInTheBoundingBox(musicVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
-			if (Utility::inTheBoundingBox(musicVolChangeArrows[0])) {
+			if (Utility::mouseInTheBoundingBox(musicVolChangeArrows[0])) {
 				if (musicVolume > 0)
 					musicVolume--;
 			}
-			else if (Utility::inTheBoundingBox(musicVolChangeArrows[1])) {
+			else if (Utility::mouseInTheBoundingBox(musicVolChangeArrows[1])) {
 				if (musicVolume < 10)
 					musicVolume++;
 			}

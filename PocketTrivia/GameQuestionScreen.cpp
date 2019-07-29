@@ -35,7 +35,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 	blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
 	clear_bitmap(buffer);
 
-	if (Utility::inTheBoundingBox(optionsBoundingBoxes[0]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
+	if (Utility::mouseInTheBoundingBox(optionsBoundingBoxes[0]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 1 Selected
@@ -57,7 +57,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[1]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
+	else if (Utility::mouseInTheBoundingBox(optionsBoundingBoxes[1]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 2 Selected
@@ -78,7 +78,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[2]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
+	else if (Utility::mouseInTheBoundingBox(optionsBoundingBoxes[2]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 3 Selected
@@ -99,7 +99,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[3]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
+	else if (Utility::mouseInTheBoundingBox(optionsBoundingBoxes[3]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 4 Selected
@@ -120,7 +120,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 			rest(200);
 		}
 	}
-	else if (Utility::inTheBoundingBox(exitToMainMenuButton) && showingResultsBanner && !(showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
+	else if (Utility::mouseInTheBoundingBox(exitToMainMenuButton) && showingResultsBanner && !(showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 4 Selected
@@ -137,7 +137,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 		}
 	}
 
-	else if (Utility::inTheBoundingBox(nextQuestionButton) && !showingResultsBanner && (showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
+	else if (Utility::mouseInTheBoundingBox(nextQuestionButton) && !showingResultsBanner && (showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			this->showingCorrectAnswerBanner = 0;

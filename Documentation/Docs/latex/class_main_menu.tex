@@ -1,0 +1,65 @@
+\hypertarget{class_main_menu}{}\section{Main\+Menu Class Reference}
+\label{class_main_menu}\index{MainMenu@{MainMenu}}
+
+
+This class contains function related to diplaying the Main Menu and handling the events for it.  
+
+
+
+
+{\ttfamily \#include $<$Main\+Menu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_menu_a1e35dbcf22d47211a1b24af8da859598}{Main\+Menu}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gs)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_main_menu}{Main\+Menu}} object that would be used to create the Main menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_main_menu_acfaacbf0ebc40eefd97604167eb133c2}{show\+Main\+Menu}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws main menu on to the buffer passed as an arguement and also handles mouse click events for the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Main Menu and handling the events for it. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_menu_a1e35dbcf22d47211a1b24af8da859598}\label{class_main_menu_a1e35dbcf22d47211a1b24af8da859598}} 
+\index{MainMenu@{MainMenu}!MainMenu@{MainMenu}}
+\index{MainMenu@{MainMenu}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{MainMenu()}{MainMenu()}}
+{\footnotesize\ttfamily Main\+Menu\+::\+Main\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gs }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_main_menu}{Main\+Menu}} object that would be used to create the Main menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gs} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_menu_acfaacbf0ebc40eefd97604167eb133c2}\label{class_main_menu_acfaacbf0ebc40eefd97604167eb133c2}} 
+\index{MainMenu@{MainMenu}!showMainMenu@{showMainMenu}}
+\index{showMainMenu@{showMainMenu}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{showMainMenu()}{showMainMenu()}}
+{\footnotesize\ttfamily int Main\+Menu\+::show\+Main\+Menu (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws main menu on to the buffer passed as an arguement and also handles mouse click events for the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the main menu screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/menus/Main\+Menu.\+h\item 
+Pocket\+Trivia/menus/Main\+Menu.\+cpp\end{DoxyCompactItemize}

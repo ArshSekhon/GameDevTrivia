@@ -1,0 +1,87 @@
+\hypertarget{class_game_manager}{}\section{Game\+Manager Class Reference}
+\label{class_game_manager}\index{GameManager@{GameManager}}
+
+
+It is the spine of the game. This class contains function for initialization of the game and the game loop. It manages transition between screens, maintains the game state, facilitates communication between different screens and does a lot of housekeeping stuff.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_manager_aa9d8973a248b62eb1ad5e88ca0ad04ee}{Game\+Manager}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$gamse\+State)
+\begin{DoxyCompactList}\small\item\em Construct a new Game Manager object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_manager_a0b2f746268718b7fccc05c178217fcff}{init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the game by performing required setup like initializing allegro etc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_a9642ca91519c300ba48cc1960d3aaf46}{exit}} (void)
+\begin{DoxyCompactList}\small\item\em Exits the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_a7a840d42c2e52b2f827800bbac51c944}{run\+Game\+Loop}} (void)
+\begin{DoxyCompactList}\small\item\em Game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+It is the spine of the game. This class contains function for initialization of the game and the game loop. It manages transition between screens, maintains the game state, facilitates communication between different screens and does a lot of housekeeping stuff. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_manager_aa9d8973a248b62eb1ad5e88ca0ad04ee}\label{class_game_manager_aa9d8973a248b62eb1ad5e88ca0ad04ee}} 
+\index{GameManager@{GameManager}!GameManager@{GameManager}}
+\index{GameManager@{GameManager}!GameManager@{GameManager}}
+\subsubsection{\texorpdfstring{GameManager()}{GameManager()}}
+{\footnotesize\ttfamily Game\+Manager\+::\+Game\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{gamse\+State }\end{DoxyParamCaption})}
+
+
+
+Construct a new Game Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gamse\+State} & Pointer to the struct used for storing game struct \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_manager_a9642ca91519c300ba48cc1960d3aaf46}\label{class_game_manager_a9642ca91519c300ba48cc1960d3aaf46}} 
+\index{GameManager@{GameManager}!exit@{exit}}
+\index{exit@{exit}!GameManager@{GameManager}}
+\subsubsection{\texorpdfstring{exit()}{exit()}}
+{\footnotesize\ttfamily void Game\+Manager\+::exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Exits the game. 
+
+\mbox{\Hypertarget{class_game_manager_a0b2f746268718b7fccc05c178217fcff}\label{class_game_manager_a0b2f746268718b7fccc05c178217fcff}} 
+\index{GameManager@{GameManager}!init@{init}}
+\index{init@{init}!GameManager@{GameManager}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int Game\+Manager\+::init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the game by performing required setup like initializing allegro etc. 
+
+\begin{DoxyReturn}{Returns}
+int Zero if initialization is successfull 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_manager_a7a840d42c2e52b2f827800bbac51c944}\label{class_game_manager_a7a840d42c2e52b2f827800bbac51c944}} 
+\index{GameManager@{GameManager}!runGameLoop@{runGameLoop}}
+\index{runGameLoop@{runGameLoop}!GameManager@{GameManager}}
+\subsubsection{\texorpdfstring{runGameLoop()}{runGameLoop()}}
+{\footnotesize\ttfamily void Game\+Manager\+::run\+Game\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Game loop. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Game\+Manager.\+h\item 
+Pocket\+Trivia/Game\+Manager.\+cpp\end{DoxyCompactItemize}

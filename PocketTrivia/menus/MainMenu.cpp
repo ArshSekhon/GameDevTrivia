@@ -80,7 +80,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 	}
 	 
 
-	if (Utility::inTheBoundingBox(startButton)) {
+	if (Utility::mouseInTheBoundingBox(startButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
@@ -99,7 +99,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	else if (Utility::inTheBoundingBox(settingsButton)) {
+	else if (Utility::mouseInTheBoundingBox(settingsButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
@@ -109,7 +109,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	else if (Utility::inTheBoundingBox(creditsButton)) {
+	else if (Utility::mouseInTheBoundingBox(creditsButton)) {
 		gameState->mouseHover = 1;
 
 		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
@@ -119,7 +119,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	else if (Utility::inTheBoundingBox(exitButton)) {
+	else if (Utility::mouseInTheBoundingBox(exitButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick == 1) && !(mouse_b & 1)) {
 			gameState->exitGame = 1;

@@ -102,7 +102,7 @@ int GameManager::init() {
 	gfxSettingsMenu = new GFXSettingsMenu(gameState, &configManager);
 	soundSettingsMenu = new SoundSettingsMenu(gameState, &configManager);
 	creditsMenu = new CreditsMenu(gameState);
-	gameModeSelectionMenu = new GameModeSelectionMenu(gameState);
+	quizChapterSelectionMenu = new QuizChapterSelectionMenu(gameState);
 
 	gameIntroScreen = new GameIntroScreen(gameState, &configManager);
 	soundManager = new SoundManager(gameState);
@@ -174,7 +174,7 @@ void GameManager::renderFrameToScreen(BITMAP* buffer) {
 		soundSettingsMenu->showSoundSettingsMenu(buffer);
 		break;
 	case GAME_SCREEN_GAME_MODE_SELECTION:
-		quiz = gameModeSelectionMenu->showGameModeMenu(buffer);
+		quiz = quizChapterSelectionMenu->showGameModeMenu(buffer);
 		break; 
 	case GAME_SCREEN_QUIZ_START:
 		gameIntroScreen->showIntroScreen(buffer);

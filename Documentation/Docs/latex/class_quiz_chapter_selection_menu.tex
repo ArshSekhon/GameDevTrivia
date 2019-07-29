@@ -1,0 +1,65 @@
+\hypertarget{class_quiz_chapter_selection_menu}{}\section{Quiz\+Chapter\+Selection\+Menu Class Reference}
+\label{class_quiz_chapter_selection_menu}\index{QuizChapterSelectionMenu@{QuizChapterSelectionMenu}}
+
+
+This class contains function related to diplaying the Chapter Seleection screen that allows selecting what chapter the quiz should be based on, handling the events for the same.  
+
+
+
+
+{\ttfamily \#include $<$Quiz\+Chapter\+Selection\+Menu.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quiz_chapter_selection_menu_a825635a0dd17939087e46f91b83f6785}{Quiz\+Chapter\+Selection\+Menu}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$game\+State)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_quiz_chapter_selection_menu}{Quiz\+Chapter\+Selection\+Menu}} object that would be used to show an screen that allows selecting chapters which the quiz should be based. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_quiz}{Quiz}} $\ast$ \mbox{\hyperlink{class_quiz_chapter_selection_menu_ad1b6d7cabeb57060ce96bd53d2d9dc50}{show\+Game\+Mode\+Menu}} (B\+I\+T\+M\+AP $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Draws game chapter selection screen on to the buffer passed as an arguement and also handles mouse click events for the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains function related to diplaying the Chapter Seleection screen that allows selecting what chapter the quiz should be based on, handling the events for the same. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_quiz_chapter_selection_menu_a825635a0dd17939087e46f91b83f6785}\label{class_quiz_chapter_selection_menu_a825635a0dd17939087e46f91b83f6785}} 
+\index{QuizChapterSelectionMenu@{QuizChapterSelectionMenu}!QuizChapterSelectionMenu@{QuizChapterSelectionMenu}}
+\index{QuizChapterSelectionMenu@{QuizChapterSelectionMenu}!QuizChapterSelectionMenu@{QuizChapterSelectionMenu}}
+\subsubsection{\texorpdfstring{QuizChapterSelectionMenu()}{QuizChapterSelectionMenu()}}
+{\footnotesize\ttfamily Quiz\+Chapter\+Selection\+Menu\+::\+Quiz\+Chapter\+Selection\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_state}{Game\+State}} $\ast$}]{game\+State }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_quiz_chapter_selection_menu}{Quiz\+Chapter\+Selection\+Menu}} object that would be used to show an screen that allows selecting chapters which the quiz should be based. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & Pointer to the game state struct that is shared by the entire game \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_quiz_chapter_selection_menu_ad1b6d7cabeb57060ce96bd53d2d9dc50}\label{class_quiz_chapter_selection_menu_ad1b6d7cabeb57060ce96bd53d2d9dc50}} 
+\index{QuizChapterSelectionMenu@{QuizChapterSelectionMenu}!showGameModeMenu@{showGameModeMenu}}
+\index{showGameModeMenu@{showGameModeMenu}!QuizChapterSelectionMenu@{QuizChapterSelectionMenu}}
+\subsubsection{\texorpdfstring{showGameModeMenu()}{showGameModeMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_quiz}{Quiz}} $\ast$ Quiz\+Chapter\+Selection\+Menu\+::show\+Game\+Mode\+Menu (\begin{DoxyParamCaption}\item[{B\+I\+T\+M\+AP $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Draws game chapter selection screen on to the buffer passed as an arguement and also handles mouse click events for the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Screen buffer or other buffer where the game chapter screen screen has to be drawn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pocket\+Trivia/Quiz\+Chapter\+Selection\+Menu.\+h\item 
+Pocket\+Trivia/Quiz\+Chapter\+Selection\+Menu.\+cpp\end{DoxyCompactItemize}
