@@ -145,7 +145,10 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				gameState->currentQuestion++;
 			}
 
-
+			if (questionScreenPlayer) {
+				shutdown_dialog(questionScreenPlayer);
+				questionScreenPlayer = NULL;
+			}
 			rest(200);
 		}
 	}
@@ -293,7 +296,7 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Quiz* quiz) {
 		printQuestionNumber(buffer, font, SCREEN_W * 0.83, SCREEN_H * 0.15, 1.3, gameState->currentQuestion + 1, COLOR_HUD_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.22, 2.5, "QUESTION", COLOR_TEXT, -1);
 		// display question text box
-		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog,quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.13, SCREEN_H * 0.28, SCREEN_W * 0.74, SCREEN_H * 0.2, COLOR_TEXT);
+		questionScreenPlayer = Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog,quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.13, SCREEN_H * 0.28, SCREEN_W * 0.74, SCREEN_H * 0.2, COLOR_TEXT);
 
 		//print options
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 1, quiz->getQuestionOption(gameState->currentQuestion,0), COLOR_TEXT, -1);
@@ -328,7 +331,7 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Quiz* quiz) {
 		printQuestionNumber(buffer, font, SCREEN_W * 0.9, SCREEN_H * 0.18, 2, gameState->currentQuestion + 1, COLOR_HUD_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.17, 3, "QUESTION", COLOR_TEXT, -1);
 
-		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.09, SCREEN_H * 0.22, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
+		questionScreenPlayer = Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.09, SCREEN_H * 0.22, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
 
 		//print options
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h / 2, 1.5, quiz->getQuestionOption(gameState->currentQuestion, 0), COLOR_TEXT, -1);
@@ -361,7 +364,7 @@ void GameQuestionScreen::showQuestion(BITMAP* buffer, Quiz* quiz) {
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.16, 3, "QUESTION", COLOR_TEXT, -1);
 
 		// display question text box
-		Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.09, SCREEN_H * 0.2, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
+		questionScreenPlayer= Utility::draw_wrapping_text(buffer, bigFont, &gameQuestionDialog, quiz->getQuestionText(gameState->currentQuestion), SCREEN_W * 0.09, SCREEN_H * 0.2, SCREEN_W * 0.82, SCREEN_H * 0.2, COLOR_TEXT);
 		//print options
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W/2, optionsBoundingBoxes[0].y + optionsBoundingBoxes[0].h/2, 2, quiz->getQuestionOption(gameState->currentQuestion, 0), COLOR_TEXT, -1);
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, optionsBoundingBoxes[1].y + optionsBoundingBoxes[1].h / 2, 2, quiz->getQuestionOption(gameState->currentQuestion, 1), COLOR_TEXT, -1);

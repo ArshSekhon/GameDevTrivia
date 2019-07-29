@@ -2,6 +2,8 @@
 
 DIALOG creditsDialog = { d_textbox_proc, 0, 0,  0,  0,  0,  0, 0, 0, 0,   0, NULL, NULL, NULL };
 
+DIALOG_PLAYER* creditsPlayer;
+
 CreditsMenu::CreditsMenu(GameState* gameState) {
 	this->gameState = gameState;
 	this->bannerBitmap = load_bitmap("assets/ui-elem/Banner_Sq.bmp", NULL);
@@ -23,21 +25,21 @@ void CreditsMenu::showCreditsScreen(BITMAP* buffer) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, SCREEN_W * 0.1, SCREEN_H * 0.1, SCREEN_W * 0.8, SCREEN_H * 0.8);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.25, 3, "CREDITS", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W*0.2, SCREEN_H * 0.32, SCREEN_W*0.6, SCREEN_H*0.4, 10);
+		creditsPlayer=Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W*0.2, SCREEN_H * 0.32, SCREEN_W*0.6, SCREEN_H*0.4, 10);
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.78, 1.5, "BACK", COLOR_TEXT, -1);
 	}
 	else if (SCREEN_W == 960 && SCREEN_H == 720) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.27, 3, "CREDITS", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W * 0.22, SCREEN_H * 0.32, SCREEN_W * 0.56, SCREEN_H * 0.37, 10);
+		creditsPlayer=Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W * 0.22, SCREEN_H * 0.32, SCREEN_W * 0.56, SCREEN_H * 0.37, 10);
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.74, 1.5, "BACK", COLOR_TEXT, -1);
 	}
 	else  if (SCREEN_W == 1280 && SCREEN_H == 960) {
 		masked_stretch_blit(bannerBitmap, buffer, 0, 0, bannerBitmap->w, bannerBitmap->h, (SCREEN_W - bannerBitmap->w) / 2, (SCREEN_H - bannerBitmap->h) / 2, bannerBitmap->w, bannerBitmap->h);
 
 		Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.33, 3, "CREDITS", COLOR_TEXT, -1);
-		Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W * 0.3, SCREEN_H * 0.37, SCREEN_W * 0.4, SCREEN_H * 0.27, 10);
+		creditsPlayer=Utility::draw_wrapping_text(buffer, font, &creditsDialog, this->credits, SCREEN_W * 0.3, SCREEN_H * 0.37, SCREEN_W * 0.4, SCREEN_H * 0.27, 10);
 		backButton = Utility::textout_centre_magnified(buffer, font, SCREEN_W / 2, SCREEN_H * 0.68, 1.5, "BACK", COLOR_TEXT, -1);
 	}
 
@@ -47,6 +49,11 @@ void CreditsMenu::showCreditsScreen(BITMAP* buffer) {
 		if (mouse_b & 1) {
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;
 			gameState->mouseHover = 0;
+			if (creditsPlayer) {
+
+				shutdown_dialog(creditsPlayer);
+				creditsPlayer = NULL;
+			}
 			rest(300);
 			return;
 		}

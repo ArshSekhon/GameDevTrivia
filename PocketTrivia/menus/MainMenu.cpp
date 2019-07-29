@@ -68,7 +68,8 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 
 		masked_stretch_blit(buttonsBitmap, buffer, 0, 0, buttonsBitmap->w, buttonsBitmap->h, (SCREEN_W - buttonsBitmap->w) / 2, SCREEN_H * 0.5,buttonGroupWidth, buttonGroupHeight);
 
-		startButton.x = settingsButton.x = creditsButton.x = exitButton.x = (SCREEN_W - buttonsBitmap->w ) / 2;
+		startButton.x = settingsButton.x = creditsButton.x = exitButton.x 
+			= (SCREEN_W - buttonsBitmap->w ) / 2;
 		startButton.w = settingsButton.w = creditsButton.w = exitButton.w = buttonsBitmap->w;
 		startButton.h = settingsButton.h = creditsButton.h = exitButton.h = buttonsBitmap->h* buttonHeightToBmpHeightRatio;
 

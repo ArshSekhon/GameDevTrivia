@@ -142,12 +142,38 @@
     <Image Include="assets\ui-elem\question-banner.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="questions\Chapter-1-Answers.txt" />
+    <Text Include="questions\Chapter-1-Answers.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </Text>
     <Text Include="questions\Chapter-1-Questions.txt" />
     <Text Include="questions\Chapter-10-Answers.txt" />
     <Text Include="questions\Chapter-10-Questions.txt" />
+    <Text Include="questions\Chapter-11-Answers.txt" />
+    <Text Include="questions\Chapter-11-Questions.txt" />
+    <Text Include="questions\Chapter-12-Answers.txt" />
+    <Text Include="questions\Chapter-12-Questions.txt" />
+    <Text Include="questions\Chapter-13-Answers.txt" />
+    <Text Include="questions\Chapter-13-Questions.txt" />
+    <Text Include="questions\Chapter-14-Answers.txt" />
+    <Text Include="questions\Chapter-14-Questions.txt" />
+    <Text Include="questions\Chapter-15-Answers.txt" />
+    <Text Include="questions\Chapter-15-Questions.txt" />
+    <Text Include="questions\Chapter-16-Answers.txt" />
+    <Text Include="questions\Chapter-16-Questions.txt" />
+    <Text Include="questions\Chapter-17-Answers.txt" />
+    <Text Include="questions\Chapter-17-Questions.txt" />
+    <Text Include="questions\Chapter-18-Answers.txt" />
+    <Text Include="questions\Chapter-18-Questions.txt" />
+    <Text Include="questions\Chapter-19-Answers.txt" />
+    <Text Include="questions\Chapter-19-Questions.txt" />
     <Text Include="questions\Chapter-2-Answers.txt" />
     <Text Include="questions\Chapter-2-Questions.txt" />
+    <Text Include="questions\Chapter-20-Answers.txt" />
+    <Text Include="questions\Chapter-20-Questions.txt" />
+    <Text Include="questions\Chapter-21-Answers.txt" />
+    <Text Include="questions\Chapter-21-Questions.txt" />
+    <Text Include="questions\Chapter-22-Answers.txt" />
+    <Text Include="questions\Chapter-22-Questions.txt" />
     <Text Include="questions\Chapter-3-Answers.txt" />
     <Text Include="questions\Chapter-3-Questions.txt" />
     <Text Include="questions\Chapter-4-Answers.txt" />
