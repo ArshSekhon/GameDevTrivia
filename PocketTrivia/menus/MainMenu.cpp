@@ -83,7 +83,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 	if (Utility::inTheBoundingBox(startButton)) {
 		gameState->mouseHover = 1;
 
-		if (mouse_b & 1){
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
 
 			if (!gameState->skip_intro)
 				gameState->gameScreen = GAME_SCREEN_QUIZ_START;
@@ -95,31 +95,36 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			gameState->currentScore = 0;
 
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(settingsButton)) {
 		gameState->mouseHover = 1;
 
-		if (mouse_b & 1){
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
 			gameState->gameScreen = GAME_SCREEN_SETTINGS;
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(creditsButton)) {
 		gameState->mouseHover = 1;
 
-		if (mouse_b & 1){
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)){
 			gameState->gameScreen = GAME_SCREEN_CREDITS;
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(exitButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1)
+		if ((gameState->pendingMouseClick == 1) && !(mouse_b & 1)) {
 			gameState->exitGame = 1;
+			gameState->pendingMouseClick = 0;
+		}
 	}
 	else {
 		gameState->mouseHover = 0;

@@ -83,6 +83,7 @@ struct GameState {
 	int currentScore;
 
 	int bgMusicPlaying;
+	int pendingMouseClick;
 };
 
 struct BoundingBox {

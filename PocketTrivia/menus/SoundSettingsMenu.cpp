@@ -115,23 +115,25 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 	if (Utility::inTheBoundingBox(applyButton)) {
 		gameState->mouseHover = 1;
 
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			this->changeSoundSettings(musicVolume, soundVolume, this->gameState);
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_SETTINGS;
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(soundVolChangeArrows[0]) || Utility::inTheBoundingBox(soundVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			if (Utility::inTheBoundingBox(soundVolChangeArrows[0])) {
 				if (soundVolume > 0)
 					soundVolume--;
@@ -140,12 +142,13 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 				if (soundVolume < 10)
 					soundVolume++;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 	else if (Utility::inTheBoundingBox(musicVolChangeArrows[0]) || Utility::inTheBoundingBox(musicVolChangeArrows[1])) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			if (Utility::inTheBoundingBox(musicVolChangeArrows[0])) {
 				if (musicVolume > 0)
 					musicVolume--;
@@ -154,6 +157,7 @@ void SoundSettingsMenu::showSoundSettingsMenu(BITMAP* buffer) {
 				if (musicVolume < 10)
 					musicVolume++;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}

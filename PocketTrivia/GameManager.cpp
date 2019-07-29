@@ -120,11 +120,13 @@ void GameManager::runGameLoop() {
 	
 	while (!key[KEY_ESC] && !close_button_flag && !gameState->exitGame) {
 
-
-		if (gameState->mouseHover == 1 && (mouse_b & 1)) {
+		if (gameState->mouseHover == 1 && (mouse_b & 1) && gameState->pendingMouseClick==0) {
 			soundManager->playSound(SOUND_CLICK, 1000);
 		} 
 
+		if ((mouse_b & 1)) {
+			gameState->pendingMouseClick = 1;
+		}
 		if (gameState->gfxSettingsUpdated) {
 			gameState->gfxSettingsUpdated = 0;
 			buffer = create_bitmap(gameState->resolution_x, gameState->resolution_y);

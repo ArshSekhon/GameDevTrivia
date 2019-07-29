@@ -37,12 +37,12 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 
 	if (Utility::inTheBoundingBox(optionsBoundingBoxes[0]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 1 Selected
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,0)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
-				soundManager->playSound(SOUND_CHEERING, 1000);
+				soundManager->playSound(SOUND_CHEERING, 1000); 
 			}
 			else{
 				this->showingWrongAnswerBanner = 1;
@@ -53,17 +53,18 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[1]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 2 Selected
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,1)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
-				soundManager->playSound(SOUND_CHEERING, 1000);
+				soundManager->playSound(SOUND_CHEERING, 1000); 
 			}
 			else {
 				this->showingWrongAnswerBanner = 1;
@@ -73,17 +74,18 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[2]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 3 Selected
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion,2)){
 				this->showingCorrectAnswerBanner = 1;
 				gameState->currentScore++;
-				soundManager->playSound(SOUND_CHEERING, 1000);
+				soundManager->playSound(SOUND_CHEERING, 1000); 
 			}
 			else {
 				this->showingWrongAnswerBanner = 1;
@@ -93,12 +95,13 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 	else if (Utility::inTheBoundingBox(optionsBoundingBoxes[3]) && !(showingCorrectAnswerBanner || showingWrongAnswerBanner || showingResultsBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 4 Selected
 			if (quiz->checkQuestionAnswer(gameState->currentQuestion, 3)){
 				this->showingCorrectAnswerBanner = 1;
@@ -113,12 +116,13 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 	else if (Utility::inTheBoundingBox(exitToMainMenuButton) && showingResultsBanner && !(showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			//OPTION 4 Selected
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;
 			gameState->currentScore = 0;
@@ -128,13 +132,14 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}
 
 	else if (Utility::inTheBoundingBox(nextQuestionButton) && !showingResultsBanner && (showingCorrectAnswerBanner || showingWrongAnswerBanner)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			this->showingCorrectAnswerBanner = 0;
 			this->showingWrongAnswerBanner = 0;
 
@@ -149,6 +154,7 @@ void GameQuestionScreen::showQuestionScreen(BITMAP* buffer, Quiz* quiz) {
 				shutdown_dialog(questionScreenPlayer);
 				questionScreenPlayer = NULL;
 			}
+			gameState->pendingMouseClick = 0;
 			rest(200);
 		}
 	}

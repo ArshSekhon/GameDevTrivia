@@ -69,18 +69,20 @@ Quiz* GameModeSelectionMenu::showGameModeMenu(BITMAP* buffer) {
 
 	if (Utility::inTheBoundingBox(exitToMainMenuButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 			return NULL;
 		}
 	}
 	else if (Utility::inTheBoundingBox(playButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) { 
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) { 
 			gameState->gameScreen = GAME_SCREEN_QUESTION;
 			gameState->mouseHover = 0;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		
 			return prepareQuizFromSelection(gameState->chapter_selection);

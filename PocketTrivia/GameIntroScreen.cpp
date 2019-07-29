@@ -47,11 +47,11 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 
 	if (Utility::inTheBoundingBox(skipIntroButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
 			gameState->skip_intro = 1;
 			configManager->save_config(CONFIG_FILENAME, gameState);
-
+			gameState->pendingMouseClick = 0;
 			gameState->mouseHover = 0;
 			rest(300);
 			return;
@@ -59,9 +59,10 @@ void GameIntroScreen::showIntroScreen(BITMAP* buffer) {
 	}
 	else if (Utility::inTheBoundingBox(okButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_GAME_MODE_SELECTION;
-			gameState->mouseHover = 0;
+			gameState->mouseHover = 0; 
+			gameState->pendingMouseClick = 0;
 			rest(300);
 			return;
 		}

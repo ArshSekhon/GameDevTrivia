@@ -54,22 +54,25 @@ void SettingsMenu::showSettingsMenu(BITMAP* buffer) {
 	if (Utility::inTheBoundingBox(gfxSettingButton)) {
 		gameState->mouseHover = 1;
 
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_GFX_SETTINGS;
+			gameState->pendingMouseClick = 0;
 			rest(300); 
 		}
 	}
 	else if (Utility::inTheBoundingBox(soundSettingButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_SOUND_SETTINGS;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
 	else if (Utility::inTheBoundingBox(backButton)) {
 		gameState->mouseHover = 1;
-		if (mouse_b & 1) {
+		if ((gameState->pendingMouseClick==1) && !(mouse_b & 1)) {
 			gameState->gameScreen = GAME_SCREEN_MAIN_MENU;
+			gameState->pendingMouseClick = 0;
 			rest(300);
 		}
 	}
