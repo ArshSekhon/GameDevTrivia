@@ -124,7 +124,7 @@ int MainMenu::showMainMenu(BITMAP* buffer) {
 			rest(300);
 		}
 	}
-	// handle clicks on the exit button
+	// handle clicks on the credits button
 	else if (Utility::mouseInTheBoundingBox(exitButton)) {
 		gameState->mouseHover = 1;
 		if ((gameState->pendingMouseClick == 1) && !(mouse_b & 1)) {

@@ -117,9 +117,9 @@ void GameManager::runGameLoop() {
 
 		if (gameState->mouseHover == 1 && (mouse_b & 1) && gameState->pendingMouseClick==0) {
 			soundManager->playSound(SOUND_CLICK, 1000);
-		} 
+		}  
 
-		if ((mouse_b & 1)) {
+		if ((mouse_b & 1) && gameState->mouseHover==1) {
 			gameState->pendingMouseClick = 1;
 		}
 		// if gfx settings change need to create new buffer

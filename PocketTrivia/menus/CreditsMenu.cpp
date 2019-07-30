@@ -10,7 +10,7 @@ CreditsMenu::CreditsMenu(GameState* gameState) {
 
 	this->bigFont = (FONT*)load_datafile("assets/bigfont.dat")[0].dat;
 
-	this->credits = (char*)"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+	this->credits = (char*)"Questions for the quizes are obtained from the back exercises of the book Game Programming All in One by Jonathan S. Harbour.\n\n\nThe UI elements were derived from https://opengameart.org/content/fantasy-ui-elements-by-ravenmore \n\nBackground music was obtained from: http://www.partnersinrhyme.com/midi/index.shtml \n\nSound FX were obtained from: http://www.wavsource.com/sfx/sfx.htm";
 }
 
 void CreditsMenu::showCreditsScreen(BITMAP* buffer) {
