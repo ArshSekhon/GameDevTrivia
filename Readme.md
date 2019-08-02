@@ -1,7 +1,7 @@
 # Technical Documentation
 
 ## Introduction
-Pocket Trivia is a Trivia game based upon Allegro 4.4.2. The project was created using Visual Studio. 
+Game Development Trivia is a Trivia game based upon Allegro 4.4.2. The project was created using Visual Studio. 
 
 The game basically reads the questions and answers provided in the text files in the questions directory and uses them to create quiz consisting of 10 questions for the Players. These questions are derived from the back exercises of the book Game Programming All in One by Jonathan S. Harbour.
 

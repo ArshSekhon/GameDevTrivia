@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="GameIntroScreen.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="ConfigManager.cpp" />
+    <ClCompile Include="QuizChapterSelectionMenu.cpp" />
+    <ClCompile Include="GameQuestionScreen.cpp" />
+    <ClCompile Include="GameDevTrivia.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="menus\CreditsMenu.cpp">
+      <Filter>menus</Filter>
+    </ClCompile>
+    <ClCompile Include="menus\MainMenu.cpp">
+      <Filter>menus</Filter>
+    </ClCompile>
+    <ClCompile Include="menus\GFXSettingsMenu.cpp">
+      <Filter>menus</Filter>
+    </ClCompile>
+    <ClCompile Include="menus\SoundSettingsMenu.cpp">
+      <Filter>menus</Filter>
+    </ClCompile>
+    <ClCompile Include="menus\SettingsMenu.cpp">
+      <Filter>menus</Filter>
+    </ClCompile>
+    <ClCompile Include="entities\Quiz.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="GameIntroScreen.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="QuizChapterSelectionMenu.h" />
+    <ClInclude Include="GameQuestionScreen.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="menus\CreditsMenu.h">
+      <Filter>menus</Filter>
+    </ClInclude>
+    <ClInclude Include="menus\MainMenu.h">
+      <Filter>menus</Filter>
+    </ClInclude>
+    <ClInclude Include="menus\GFXSettingsMenu.h">
+      <Filter>menus</Filter>
+    </ClInclude>
+    <ClInclude Include="menus\SoundSettingsMenu.h">
+      <Filter>menus</Filter>
+    </ClInclude>
+    <ClInclude Include="menus\SettingsMenu.h">
+      <Filter>menus</Filter>
+    </ClInclude>
+    <ClInclude Include="entities\Quiz.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\buzzer.wav">
+      <Filter>sounds</Filter>
+    </Media>
+    <Media Include="sounds\boing.wav">
+      <Filter>sounds</Filter>
+    </Media>
+    <Media Include="sounds\whah_whah.wav">
+      <Filter>sounds</Filter>
+    </Media>
+    <Media Include="sounds\click.wav">
+      <Filter>sounds</Filter>
+    </Media>
+    <Media Include="sounds\cheering.wav">
+      <Filter>sounds</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\main-menu\MainMenuButtons.bmp">
+      <Filter>assets\main-menu</Filter>
+    </Image>
+    <Image Include="assets\main-menu\GameTitleBanner.bmp">
+      <Filter>assets\main-menu</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\question-banner.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\LoadScreenBanner.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\option-banner.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\pointer.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\cursor-hand.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+    <Image Include="assets\ui-elem\Banner_Sq.bmp">
+      <Filter>assets\ui-elem</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameDevTriviaSettings.cfg" />
+    <None Include="sounds\music.MID">
+      <Filter>sounds</Filter>
+    </None>
+    <None Include="assets\bigfont.dat">
+      <Filter>assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions\Chapter-1-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-1-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-2-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-2-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-3-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-3-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-4-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-4-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-5-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-5-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-6-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-6-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-7-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-7-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-8-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-8-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-9-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-9-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-10-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-10-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-11-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-11-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-12-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-12-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-13-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-13-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-14-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-14-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-15-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-15-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-16-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-16-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-17-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-17-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-18-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-18-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-19-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-19-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-20-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-20-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-21-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-21-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-22-Answers.txt">
+      <Filter>questions</Filter>
+    </Text>
+    <Text Include="questions\Chapter-22-Questions.txt">
+      <Filter>questions</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sounds">
+      <UniqueIdentifier>{90e4c1c2-42a3-448b-920c-c2222fa3a0f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="questions">
+      <UniqueIdentifier>{d21c2441-ae11-4d60-b821-70845ef6f932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menus">
+      <UniqueIdentifier>{64f8841c-2490-43bd-ab70-e6d58e4c9bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities">
+      <UniqueIdentifier>{740a8bc8-3fc7-44e8-b7f9-ca1a149658a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{b2674678-3a66-4ebd-ac95-39b2d2a2c889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\main-menu">
+      <UniqueIdentifier>{1a79caf4-a89c-494c-a72d-54d6927bedef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\ui-elem">
+      <UniqueIdentifier>{18cf9161-ad98-400d-bfad-95ebd5d98291}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
