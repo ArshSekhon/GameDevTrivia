@@ -1,5 +1,5 @@
 #pragma once
-#define CONFIG_FILENAME "PocketTrivia.cfg"
+#define CONFIG_FILENAME "GameDevTriviaSettings.cfg"
 
 #define NUMBER_OF_QUESTIONS_PER_GAME 10
 

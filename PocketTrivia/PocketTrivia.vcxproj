@@ -14,8 +14,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{FC566158-7C6F-4820-A1BB-E6D0E1993921}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PocketTrivia</RootNamespace>
+    <RootNamespace>GameDevTrivia</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>GameDevTrivia</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -101,7 +102,7 @@
     <ClCompile Include="menus\CreditsMenu.cpp" />
     <ClCompile Include="menus\GFXSettingsMenu.cpp" />
     <ClCompile Include="menus\MainMenu.cpp" />
-    <ClCompile Include="PocketTrivia.cpp" />
+    <ClCompile Include="GameDevTrivia.cpp" />
     <ClCompile Include="entities\Quiz.cpp" />
     <ClCompile Include="menus\SettingsMenu.cpp" />
     <ClCompile Include="menus\SoundSettingsMenu.cpp" />
@@ -126,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\bigfont.dat" />
-    <None Include="PocketTrivia.cfg" />
+    <None Include="GameDevTriviaSettings.cfg" />
     <None Include="sounds\music.MID" />
   </ItemGroup>
   <ItemGroup>
