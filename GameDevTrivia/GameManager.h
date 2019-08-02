@@ -15,7 +15,7 @@
 #include "GameQuestionScreen.h"
 
 #include "Constants.h"
-#define CONFIG_FILE "PocketTrivia.cfg"
+#define CONFIG_FILE "GameDevTrivia.cfg"
 
 /**
  * @brief It is the spine of the game. This class contains function for initialization of the game and the game loop. 

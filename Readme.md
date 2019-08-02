@@ -26,11 +26,11 @@ In order to run the game you would need to setup the allegro first:
 6. Find the variable Path and click edit, if the last character is not a semi-colon(;) then add one ; to the end and after it paste C:/allegro/bin;
 7. Click apply a bunch of times as required and you should be good to go.
 
-Now open the PocketTrivia Project in Visual Studio and hit run!
+Now open the GameDevTrivia Project in Visual Studio and hit run!
 
 ## Technical Design
 
-The entrypoint for the project is PocketTrivia.cpp. The file basically creates a [GameManager](@ref GameManager) object and calls the [gameManager.init()](@ref GameManager.init) function. This function does all the required setup and perform tasks like setting up allegro, creating struct to store gameState, acquiring mouse, setting up sound etc.
+The entrypoint for the project is GameDevTrivia.cpp. The file basically creates a [GameManager](@ref GameManager) object and calls the [gameManager.init()](@ref GameManager.init) function. This function does all the required setup and perform tasks like setting up allegro, creating struct to store gameState, acquiring mouse, setting up sound etc.
 
 
 After this [gameManager.runGameLoop()](@ref GameManager.runGameLoop) is called and the control is completely passed to the game manager. The game loop basically checks the current state of the game and then hands over the control to object of correct Screen/Menu class. These Screen/Menu objects basically take care of things like drawing graphics on screen, playing sounds, handling event etc. 

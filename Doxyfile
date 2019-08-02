@@ -58,7 +58,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "/Users/i867355/OneDrive - SAP SE/Personal/369/PocketTrivia/Documentation/Docs"
+OUTPUT_DIRECTORY       = "/Users/i867355/OneDrive - SAP SE/Personal/369/GameDevTrivia/Documentation/Docs"
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -813,7 +813,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = "/Users/i867355/OneDrive - SAP SE/Personal/369/PocketTrivia/PocketTrivia" \
+INPUT                  = "/Users/i867355/OneDrive - SAP SE/Personal/369/GameDevTrivia/GameDevTrivia" \
                          Readme.md
 
 # This tag can be used to specify the character encoding of the source files
